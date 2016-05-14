@@ -4,9 +4,9 @@ import './login.template.html';
 
 class LoginController {
     /*@ngInject*/
-    constructor($scope, $reactive, $state) {
-
+    constructor($scope, $reactive, $state, MessageService) {
         this.$state = $state;
+        this.MessageService = MessageService;
 
         $reactive(this).attach($scope);
 
@@ -15,14 +15,13 @@ class LoginController {
             password: ''
         };
 
-        this.error = '';
     }
 
     login() {
         Meteor.loginWithPassword(this.credentials.email, this.credentials.password,
             this.$bindToContext((err) => {
                 if (err) {
-                    this.error = err;
+                    this.MessageService.showMessage(err.message);
                 } else {
                     this.$state.go('match');
                 }

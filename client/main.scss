@@ -1,1 +1,16 @@
+$principal-main-color: #1a237e;
+$principal-light-color: #9fa8da;
+$secondary-main-color: #039be5;
+$secondary-light-color: #b3e5fc;
+$third-main-color: #64dd17;
+$third-light-color: #ccff90;
+$warn-main-color: #e53935;
+$warn-light-color: #ffcdd2;
 
+// Global settings
+
+
+// Form validation settings
+.validation-alert {
+    color: $warn-main-color;
+}

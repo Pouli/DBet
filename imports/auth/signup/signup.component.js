@@ -4,29 +4,43 @@ import './signup.template.html';
 
 class SignupController {
     /*@ngInject*/
-    constructor($scope, $reactive, $state) {
+    constructor($scope, $timeout, $reactive, $state, MessageService, DEPARTMENTS) {
         this.$state = $state;
+        this.MessageService = MessageService;
+        this.departments = DEPARTMENTS;
+
         $reactive(this).attach($scope);
 
         this.credentials = {
             email: '',
-            password: ''
+            password: '',
+            profile: {
+                department: ''
+            }
         };
 
-        this.error = '';
+        initSelect($timeout)
     }
 
-    register() {
+    register(isValid) {
+        if(!isValid) return;
+
         Accounts.createUser(this.credentials,
             this.$bindToContext((err) => {
                 if (err) {
-                    this.error = err;
+                    this.MessageService.showMessage(err.message);
                 } else {
                     this.$state.go('match');
                 }
             })
         );
     }
+}
+
+function initSelect($timeout) {
+    $timeout(function() {
+        $('select').material_select();
+    });
 }
 
 const SignupComponent = {

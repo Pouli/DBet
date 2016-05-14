@@ -4,30 +4,48 @@
             <div class="row">
                 <h3>Sign up</h3>
 
-                <form class="col s12"  ng-submit="ctrl.register()">
+                <form name="registerForm" class="col s12"  ng-submit="ctrl.register(registerForm.$valid)" novalidate>
                     <div class="input-field">
-                        <input type="email" ng-model="ctrl.credentials.email">
-                        <label ng-if="!ctrl.credentials.email" for="email">Email</label>
-                        <label ng-if="ctrl.credentials.email" for="email" class="active">Email</label>
+                        <input type="email" name="email" ng-model="ctrl.credentials.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-required="true">
+                        <label ng-if="!ctrl.credentials.email">Email</label>
+                        <label ng-if="ctrl.credentials.email" class="active">Email</label>
+
+                        <div ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched || registerForm.email.$dirty">
+                            <div ng-message="required" class="validation-alert">Votre email est requis</div>
+                            <div ng-message="pattern" class="validation-alert">Le format de votre email n'est pas valide</div>
+                        </div>
                     </div>
 
                     <div class="input-field">
-                        <input type="password" ng-model="ctrl.credentials.password">
-                        <label ng-if="!ctrl.credentials.password" for="password">Password</label>
-                        <label ng-if="ctrl.credentials.password" for="password" class="active">Password</label>
+                        <input type="password" name="password" ng-model="ctrl.credentials.password" ng-minlength="6" ng-required="true">
+                        <label ng-if="!ctrl.credentials.password">Password</label>
+                        <label ng-if="ctrl.credentials.password" class="active">Password</label>
+
+                        <div ng-messages="registerForm.password.$error" ng-if="registerForm.password.$touched || registerForm.password.$dirty">
+                            <div ng-message="required" class="validation-alert">Votre mot de passe est requis</div>
+                            <div ng-message="minlength" class="validation-alert">Votre mot de passe est trop court</div>
+                        </div>
                     </div>
 
-                    <button class="btn waves-effect waves-light" type="submit">
-                        Register<i class="material-icons right">send</i>
+                    <div class="input-field">
+                        <select name="department" ng-model="ctrl.credentials.profile.department" ng-required="true">
+                            <option value="" disabled selected>Sélectionner votre ligne de service</option>
+                            <option ng-repeat="department in ctrl.departments" value="{{department.id}}">{{department.label}}</option>
+                        </select>
+                        <label>Ligne de service</label>
+
+                        <div ng-messages="registerForm.department.$error" ng-if="registerForm.department.$touched || registerForm.department.$dirty">
+                            <div ng-message="required">Votre ligne de service est requise</div>
+                        </div>
+                    </div>
+
+                    <button class="btn waves-effect waves-light light-blue darken-1" type="submit" ng-disabled="!registerForm.$valid">
+                        Enregistrement<i class="material-icons right">save</i>
                     </button>
                 </form>
 
-                <div class="col s12" ng-show="ctrl.error">
-                  <p>{{ ctrl.error }}</p>
-                </div>
-
                 <div class="col s12">
-                    Already have an account ? <a ui-sref="register">Login</a>
+                    Vous avez déjà un compte ? <a ui-sref="login">Se connecter</a>
                 </div>
             </div>
         </div>

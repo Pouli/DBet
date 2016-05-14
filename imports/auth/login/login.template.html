@@ -4,30 +4,36 @@
             <div class="row">
                 <h3>Login</h3>
 
-                <form class="col s12"  ng-submit="ctrl.login()">
+                <form name="loginForm" class="col s12" ng-submit="ctrl.login(loginForm.$valid)">
                     <div class="input-field">
-                        <input type="email" ng-model="ctrl.credentials.email">
-                        <label ng-if="!ctrl.credentials.email" for="email">Email</label>
-                        <label ng-if="ctrl.credentials.email" for="email" class="active">Email</label>
+                        <input type="email" name="email" ng-model="ctrl.credentials.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-required="true">
+                        <label ng-if="!ctrl.credentials.email">Email</label>
+                        <label ng-if="ctrl.credentials.email" class="active">Email</label>
+
+                        <div ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched || loginForm.email.$dirty">
+                            <div ng-message="required" class="validation-alert">Votre email est requis</div>
+                            <div ng-message="pattern" class="validation-alert">Le format de votre email n'est pas valide</div>
+                        </div>
                     </div>
 
                     <div class="input-field">
-                        <input type="password" ng-model="ctrl.credentials.password">
-                        <label ng-if="!ctrl.credentials.password" for="password">Password</label>
-                        <label ng-if="ctrl.credentials.password" for="password" class="active">Password</label>
+                        <input type="password" name="password" ng-model="ctrl.credentials.password" ng-minlength="6" ng-required="true">
+                        <label ng-if="!ctrl.credentials.password">Password</label>
+                        <label ng-if="ctrl.credentials.password" class="active">Password</label>
+
+                        <div ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched || loginForm.password.$dirty">
+                            <div ng-message="required" class="validation-alert">Votre mot de passe est requis</div>
+                            <div ng-message="minlength" class="validation-alert">Votre mot de passe est trop court</div>
+                        </div>
                     </div>
 
-                    <button class="btn waves-effect waves-light" type="submit">
-                        Submit<i class="material-icons right">send</i>
+                    <button class="btn waves-effect waves-light light-blue darken-1" type="submit" ng-disabled="!loginForm.$valid">
+                        Connexion<i class="material-icons right">done</i>
                     </button>
                 </form>
 
-                <div class="col s12" ng-show="ctrl.error">
-                    <p>{{ ctrl.error }}</p>
-                </div>
-
                 <div class="col s12">
-                    Don't have an account ? <a ui-sref="signup">Sign up</a>
+                    Vous n'avez pas de compte ? <a ui-sref="signup">S'enregister</a>
                 </div>
             </div>
         </div>
