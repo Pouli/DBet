@@ -1,0 +1,13 @@
+<ul id="authDropdown" class="dropdown-content">
+
+</ul>
+
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Logo</a>
+    <ul ng-if="ctrl.isLoggedIn" class="right hide-on-med-and-down">
+        <li>{{ ctrl.currentUser | displayNameFilter }}</li>
+        <li><a ng-click="ctrl.logout()"><i class="material-icons right">exit_to_app</i>Logout</a></li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,11 @@
+<div  ng-repeat="match in ctrl.matchs">
+    <p>{{match.homeTeam}} vs {{match.awayTeam}}</p>
+    <p>{{match.createdAt}}</p>
+    <button ng-click="ctrl.removeMatch(match._id)">&times;</button>
+</div>
+
+<form ng-submit="ctrl.addMatch()">
+    <input ng-model="ctrl.newMatch.homeTeam" type="text" name="text" placeholder="Home Team"/>
+    <input ng-model="ctrl.newMatch.awayTeam" type="text" name="text" placeholder="Away Team"/>
+    <input type="submit" id="submit" value="Submit" />
+</form>
