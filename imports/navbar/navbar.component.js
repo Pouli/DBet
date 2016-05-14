@@ -9,6 +9,8 @@ class NavbarController {
     /*@ngInject*/
     constructor($scope, $reactive, $state, $timeout) {
         this.$state = $state;
+        this.$timeout = $timeout;
+
         $reactive(this).attach($scope);
 
         this.helpers({
@@ -22,6 +24,8 @@ class NavbarController {
                 return Meteor.user();
             }
         });
+
+        initSideNav($timeout);
     }
 
     logout() {
@@ -30,6 +34,14 @@ class NavbarController {
             this.$state.go('login');
         });
     }
+
+    close() {
+        $('.button-collapse').sideNav('hide');
+    }
+}
+
+function initSideNav($timeout) {
+    $timeout(() => $('.button-collapse').sideNav({closeOnClick: true}));
 }
 
 const NavbarComponent = {

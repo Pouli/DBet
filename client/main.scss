@@ -1,3 +1,5 @@
+$white-color: #fafafa;
+
 $principal-main-color: #1a237e;
 $principal-light-color: #9fa8da;
 $secondary-main-color: #039be5;
@@ -8,7 +10,39 @@ $warn-main-color: #e53935;
 $warn-light-color: #ffcdd2;
 
 // Global settings
+.secondary-main-color {
+    background-color: $secondary-main-color;
+}
 
+// Navbar settings
+.logo-core {
+    color: $white-color;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.logo-point {
+    color: $third-main-color;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.flex-wrapper {
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+}
+.brand-wrapper {
+    height: 90%;
+}
+
+.logo-fit {
+    max-height: 90%;
+}
 
 // Form validation settings
 .validation-alert {

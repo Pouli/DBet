@@ -1,13 +1,30 @@
-<ul id="authDropdown" class="dropdown-content">
-
-</ul>
-
 <nav>
-  <div class="nav-wrapper">
-    <a href="#!" class="brand-logo">Logo</a>
-    <ul ng-if="ctrl.isLoggedIn" class="right hide-on-med-and-down">
-        <li>{{ ctrl.currentUser | displayNameFilter }}</li>
-        <li><a ng-click="ctrl.logout()"><i class="material-icons right">exit_to_app</i>Logout</a></li>
-    </ul>
-  </div>
+    <div class="nav-wrapper indigo darken-4">
+        <a href="#!" class="brand-logo center full-height">
+            <div class="flex-wrapper">
+                <span class="logo-core">Deloitte</span>
+                <span class="logo-point">.</span>
+                <span class="brand-wrapper">
+                    <img class="logo-fit" src="images/logo-navbar.png" alt="logo fifa euro 2016">
+                </span>
+            </div>
+        </a>
+        <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+
+        <ul ng-if="ctrl.isLoggedIn" class="left hide-on-med-and-down">
+            <li>{{ ctrl.currentUser | displayNameFilter }}</li>
+        </ul>
+
+        <ul ng-if="ctrl.isLoggedIn" class="right hide-on-med-and-down">
+            <li><a ng-click="ctrl.logout()"><i class="material-icons right">exit_to_app</i>Logout</a></li>
+        </ul>
+
+        <ul class="side-nav" id="mobile-menu">
+            <li class="secondary-main-color row" ng-click="ctrl.close()">
+                <i class="col material-icons">account_circle</i>
+                <span class="col">{{ ctrl.currentUser | displayNameFilter }}</span>
+            </li>
+            <li><a ng-click="ctrl.logout()"><i class="material-icons right">exit_to_app</i>Logout</a></li>
+        </ul>
+    </div>
 </nav>
