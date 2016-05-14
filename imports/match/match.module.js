@@ -4,10 +4,10 @@ import matchConfig from './match.config';
 
 import ListController from './list/list.controller';
 
-let proposalModule = angular.module('Match', []);
+let martchModule = angular.module('Match', []);
 
-proposalModule.config(matchConfig);
+martchModule.config(matchConfig);
 
-proposalModule.controller('ListController', ListController);
+martchModule.controller('ListController', ListController);
 
-export default proposalModule;
+export default martchModule;
