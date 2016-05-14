@@ -38,9 +38,7 @@ class SignupController {
 }
 
 function initSelect($timeout) {
-    $timeout(function() {
-        $('select').material_select();
-    });
+    $timeout(() => $('select').material_select());
 }
 
 const SignupComponent = {
