@@ -1,4 +1,4 @@
-class MatchConfig {
+class ProfileConfig {
     static initRoute ($stateProvider, $urlRouterProvider) {
         'ngInject';
         $stateProvider
@@ -22,4 +22,4 @@ class MatchConfig {
     }
 }
 
-export default MatchConfig.initRoute;
+export default ProfileConfig.initRoute;

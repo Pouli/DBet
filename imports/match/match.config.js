@@ -7,15 +7,15 @@ class MatchConfig {
                 views: {
                     'content@': {
                         templateUrl: 'imports/match/list/list.template.html',
-                        controller: 'ListController as ctrl',
-                        resolve: {
-                            currentUser($q) {
-                                if (Meteor.userId() === null) {
-                                    return $q.reject('AUTH_REQUIRED');
-                                } else {
-                                    return $q.resolve();
-                                }
-                            }
+                        controller: 'ListController as ctrl'
+                    }
+                },
+                resolve: {
+                    currentUser($q) {
+                        if (Meteor.userId() === null) {
+                            return $q.reject('AUTH_REQUIRED');
+                        } else {
+                            return $q.resolve();
                         }
                     }
                 }

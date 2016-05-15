@@ -16,6 +16,7 @@
         <ul ng-if="ctrl.isLoggedIn" class="right hide-on-med-and-down">
             <li><a ui-sref="match">Liste des matchs</a></li>
             <li><a ui-sref="profile">Profil</a></li>
+            <li ng-if="ctrl.isAdmin"><a ui-sref="admin">Admin</a></li>
             <li><a ng-click="ctrl.logout()"><i class="material-icons right">exit_to_app</i>Logout</a></li>
         </ul>
 
@@ -26,6 +27,7 @@
             </li>
             <li><a ui-sref="match">Liste des matchs</a></li>
             <li><a ui-sref="profile">Profil</a></li>
+            <li ng-if="ctrl.isAdmin"><a ui-sref="admin">Admin</a></li>
             <li><a ng-click="ctrl.logout()"><i class="material-icons right">exit_to_app</i>Logout</a></li>
         </ul>
     </div>

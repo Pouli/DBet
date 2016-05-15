@@ -22,6 +22,9 @@ class NavbarController {
             },
             currentUser() {
                 return Meteor.user();
+            },
+            isAdmin() {
+                return Roles.userIsInRole(Meteor.userId(), 'ROLE_ADMIN');
             }
         });
 
