@@ -45,3 +45,47 @@ $warn-light-color: #ffcdd2;
 .validation-alert {
     color: $warn-main-color;
 }
+
+// Profile -> Avatar
+.row-wrap {
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    .cols {
+        padding: 0 0.75rem;
+        &.ss12 {
+            width: 100%;
+        }
+        @media only screen and (min-width: 601px) {
+            &.mm8 {
+                width: 66.6666666667%;
+            }
+            &.mm4 {
+                width: 33.3333333333%;
+            }
+        }
+    }
+}
+
+.no-bottom-margin {
+    margin-bottom: 0;
+}
+
+.rank-display {
+    font-size: 4rem;
+    font-weight: bold;
+    color: $secondary-main-color;
+}
+
+.total-display {
+    font-size: 1rem;
+}
+
+.performance-up {
+    color: $third-main-color;
+}
+
+.performance-down {
+    color: $warn-main-color;
+}

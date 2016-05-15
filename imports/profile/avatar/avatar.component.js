@@ -1,14 +1,20 @@
 class AvatarController {
     /*@ngInject*/
-    constructor() {
-        console.log('ok');
+    constructor($scope, $reactive) {
+        $reactive(this).attach($scope);
+
+        this.helpers({
+            currentUser() {
+                return Meteor.user();
+            }
+        });
     }
 
 }
 
 const AvatarComponent = {
     templateUrl: 'imports/profile/avatar/avatar.template.html',
-    controller: AvatarComponent,
+    controller: AvatarController,
     controllerAs: 'ctrl'
 }
 
