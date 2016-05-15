@@ -21,3 +21,5 @@ angular-templates
 materialize:materialize
 fourseven:scss
 accounts-password
+alanning:roles
+matb33:collection-hooks

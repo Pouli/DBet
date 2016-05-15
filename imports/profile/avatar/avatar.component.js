@@ -8,6 +8,8 @@ class AvatarController {
                 return Meteor.user();
             }
         });
+
+        console.log(Roles.userIsInRole(Meteor.userId(), 'ROLE_PLAYER'));
     }
 
 }
