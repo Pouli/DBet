@@ -3,6 +3,8 @@ class AdminConfig {
         'ngInject';
         $stateProvider
             .state('admin', {
+                url: '/admin',
+                abstract: true,
                 resolve: {
                     isLoggedIn: (AuthService) => {
                         return AuthService.isLoggedIn();
@@ -17,6 +19,14 @@ class AdminConfig {
                 views: {
                     'content@': {
                         template: '<admin-team></admin-team>'
+                    }
+                }
+            })
+            .state('admin.team.creation', {
+                url: '/admin/team/creation',
+                views: {
+                    'content@': {
+                        template: '<admin-team-creation></admin-team-creation>'
                     }
                 }
             });

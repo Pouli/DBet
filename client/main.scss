@@ -23,6 +23,10 @@ $default-font-color: #424242;
     background-color: $secondary-main-color;
 }
 
+.third-main-color-back {
+    background-color: $third-main-color;
+}
+
 .warn-main-color-back {
     background-color: $warn-main-color;
 }
@@ -77,11 +81,6 @@ $default-font-color: #424242;
 
 .logo-fit {
     max-height: 90%;
-}
-
-// Form validation settings
-.validation-alert {
-    color: $warn-main-color;
 }
 
 // Profile -> Avatar

@@ -11,8 +11,8 @@
                         <label ng-if="ctrl.credentials.email" class="active">Email</label>
 
                         <div ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched || registerForm.email.$dirty">
-                            <div ng-message="required" class="validation-alert">Votre email est requis</div>
-                            <div ng-message="pattern" class="validation-alert">Le format de votre email n'est pas valide</div>
+                            <div ng-message="required" class="warn-main-color">Votre email est requis</div>
+                            <div ng-message="pattern" class="warn-main-color">Le format de votre email n'est pas valide</div>
                         </div>
                     </div>
 
@@ -22,8 +22,8 @@
                         <label ng-if="ctrl.credentials.password" class="active">Password</label>
 
                         <div ng-messages="registerForm.password.$error" ng-if="registerForm.password.$touched || registerForm.password.$dirty">
-                            <div ng-message="required" class="validation-alert">Votre mot de passe est requis</div>
-                            <div ng-message="minlength" class="validation-alert">Votre mot de passe est trop court</div>
+                            <div ng-message="required" class="warn-main-color">Votre mot de passe est requis</div>
+                            <div ng-message="minlength" class="warn-main-color">Votre mot de passe est trop court</div>
                         </div>
                     </div>
 
