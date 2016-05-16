@@ -1,7 +1,7 @@
 <nav>
     <div class="nav-wrapper indigo darken-4">
         <a href="#!" class="brand-logo center full-height">
-            <div class="flex-wrapper">
+            <div class="flex-wrapper full-height">
                 <span class="logo-core">Deloitte</span>
                 <span class="logo-point">.</span>
                 <img class="logo-fit" src="images/logo-navbar.png" alt="logo fifa euro 2016">
@@ -16,18 +16,18 @@
         <ul ng-if="ctrl.isLoggedIn" class="right hide-on-med-and-down">
             <li><a ui-sref="match">Liste des matchs</a></li>
             <li><a ui-sref="profile">Profil</a></li>
-            <li ng-if="ctrl.isAdmin"><a ui-sref="admin">Admin</a></li>
+            <li ng-if="ctrl.isAdmin"><a ui-sref="admin.team">Admin</a></li>
             <li><a ng-click="ctrl.logout()"><i class="material-icons right">exit_to_app</i>Logout</a></li>
         </ul>
 
         <ul class="side-nav" id="mobile-menu">
-            <li class="secondary-main-color row" ng-click="ctrl.close()">
+            <li class="secondary-main-color-back row" ng-click="ctrl.close()">
                 <i class="col material-icons">account_circle</i>
                 <span class="col">{{ ctrl.currentUser | displayNameFilter }}</span>
             </li>
             <li><a ui-sref="match">Liste des matchs</a></li>
             <li><a ui-sref="profile">Profil</a></li>
-            <li ng-if="ctrl.isAdmin"><a ui-sref="admin">Admin</a></li>
+            <li ng-if="ctrl.isAdmin"><a ui-sref="admin.team">Admin</a></li>
             <li><a ng-click="ctrl.logout()"><i class="material-icons right">exit_to_app</i>Logout</a></li>
         </ul>
     </div>

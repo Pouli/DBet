@@ -3,18 +3,20 @@ class AdminConfig {
         'ngInject';
         $stateProvider
             .state('admin', {
-                url: '/admin/team',
-                views: {
-                    'content@': {
-                        template: '<p>test</p>'
-                    }
-                },
                 resolve: {
                     isLoggedIn: (AuthService) => {
                         return AuthService.isLoggedIn();
                     },
                     isRoleAuthorized: (AuthService) => {
                         return AuthService.isRoleAuthorized('ROLE_ADMIN');
+                    }
+                }
+            })
+            .state('admin.team', {
+                url: '/admin/team',
+                views: {
+                    'content@': {
+                        template: '<admin-team></admin-team>'
                     }
                 }
             });

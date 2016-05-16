@@ -8,10 +8,54 @@ $third-main-color: #64dd17;
 $third-light-color: #ccff90;
 $warn-main-color: #e53935;
 $warn-light-color: #ffcdd2;
+$default-font-color: #424242;
 
 // Global settings
-.secondary-main-color {
+.default-font-shape {
+    color: $default-font-color;
+}
+
+.principal-main-color-back {
+    background-color: $principal-main-color;
+}
+
+.secondary-main-color-back {
     background-color: $secondary-main-color;
+}
+
+.warn-main-color-back {
+    background-color: $warn-main-color;
+}
+
+.principal-main-color {
+    color: $principal-main-color;
+}
+
+.secondary-main-color {
+    color: $secondary-main-color;
+}
+
+.third-main-color {
+    color: $third-main-color;
+}
+
+.warn-main-color {
+    color: $warn-main-color;
+}
+
+// Flexbox util
+.flex-wrapper {
+    display: inline-flex;
+    align-items: center;
+}
+
+.space-around-wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.column-direction {
+    flex-direction: column;
 }
 
 // Navbar settings
@@ -29,12 +73,6 @@ $warn-light-color: #ffcdd2;
 
 .full-height {
     height: 100%;
-}
-
-.flex-wrapper {
-    height: 100%;
-    display: inline-flex;
-    align-items: center;
 }
 
 .logo-fit {
@@ -82,10 +120,12 @@ $warn-light-color: #ffcdd2;
     font-size: 1rem;
 }
 
-.performance-up {
-    color: $third-main-color;
+// Admin -> team
+.team-country-shape {
+    font-size: 2rem;
+    font-weight: bold;
 }
 
-.performance-down {
-    color: $warn-main-color;
+.team-label-shape {
+    font-size: 1rem;
 }
