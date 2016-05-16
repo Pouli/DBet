@@ -3,8 +3,9 @@ class AdminConfig {
         'ngInject';
         $stateProvider
             .state('admin', {
-                url: '/admin',
                 abstract: true,
+                url: '/admin',
+                template: '<ui-view/>',
                 resolve: {
                     isLoggedIn: (AuthService) => {
                         return AuthService.isLoggedIn();
@@ -14,8 +15,16 @@ class AdminConfig {
                     }
                 }
             })
+            .state('admin.match', {
+                url: '/match',
+                views: {
+                    'content@': {
+                        template: '<admin-match></admin-match>'
+                    }
+                }
+            })
             .state('admin.team', {
-                url: '/admin/team',
+                url: '/team',
                 views: {
                     'content@': {
                         template: '<admin-team></admin-team>'
@@ -23,7 +32,7 @@ class AdminConfig {
                 }
             })
             .state('admin.team.creation', {
-                url: '/admin/team/creation',
+                url: '/creation',
                 views: {
                     'content@': {
                         template: '<admin-team-creation></admin-team-creation>'

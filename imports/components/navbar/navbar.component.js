@@ -48,7 +48,7 @@ function initSideNav($timeout) {
 }
 
 const NavbarComponent = {
-    templateUrl: 'imports/navbar/navbar.template.html',
+    templateUrl: 'imports/components/navbar/navbar.template.html',
     controller: NavbarController,
     controllerAs: 'ctrl'
 };

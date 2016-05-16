@@ -2,6 +2,9 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 import ngMessages from 'angular-messages';
+import ngFileUpload from 'ng-file-upload';
+import 'ng-img-crop/compile/minified/ng-img-crop';
+import 'ng-img-crop/compile/minified/ng-img-crop.css';
 
 import authModule from '../imports/auth/auth.module';
 import matchModule from '../imports/match/match.module';
@@ -19,12 +22,13 @@ import MessageService from '../imports/_shared/message.service';
 
 import AppController from '../imports/app.controller';
 
-import navbarComponent from '../imports/navbar/navbar.component'
+import navbarComponent from '../imports/components/navbar/navbar.component';
+import imgUploaderComponent from '../imports/components/img-uploader/img-uploader.component';
 
 import appRun from '../imports/app.run';
 
 let app = angular.module('DBetApp', [
-    angularMeteor, uiRouter, ngMessages,
+    angularMeteor, uiRouter, ngMessages, ngFileUpload, 'ngImgCrop', 
     authModule.name, profileModule.name, matchModule.name, adminModule.name
 ]);
 
@@ -40,5 +44,6 @@ app.service('MessageService', MessageService);
 app.controller('AppController', AppController);
 
 app.component('navbar', navbarComponent);
+app.component('imgUploader', imgUploaderComponent);
 
 app.run(appRun);

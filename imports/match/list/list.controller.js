@@ -1,11 +1,13 @@
 import { Meteor } from 'meteor/meteor';
 
-import { Matchs } from '../../api/matchs.js';
+import { Matchs } from '../../api/matchs';
 
 class MatchListController {
     /*@ngInject*/
     constructor($scope) {
         $scope.viewModel(this);
+
+        this.subscribe('matchs');
 
         this.helpers({
             matchs: () => Matchs.find({}),

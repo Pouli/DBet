@@ -1,0 +1,38 @@
+<div class="space-around-wrapper column-direction">
+    <div ngf-drop
+        ngf-select
+        ngf-change="ctrl.addImages($files)"
+        ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}"
+        class="drop-box"
+        ngf-multiple="false"
+        ngf-allow-dir="false"
+        ngf-accept="'image/*'"
+        ngf-drop-available="true"
+        ng-hide="ctrl.cropImgSrc">
+
+        <div>Cliquez ici pour séléctionner un image</div>
+
+        <div>
+          <strong>OU</strong>
+        </div>
+
+        <div>Vous pouvez aussi déposer l'image ici</div>
+    </div>
+
+    <div ng-show="ctrl.cropImgSrc" class="space-around-wrapper column-direction ng-crop">
+        <div>
+            <h4>Ajuster votre image</h4>
+            <a class="waves-effect waves-light btn secondary-main-color-back" ng-click="ctrl.save()"><i class="material-icons left">save</i>Sauvegarder l'image</a>
+            <a class="waves-effect waves-light btn warn-main-color-back" ng-click="ctrl.reset()"><i class="material-icons left">cancel</i>Annuler</a>
+        </div>
+
+        <div class="ng-crop-container">
+            <img-crop image="ctrl.cropImgSrc" result-image="ctrl.myCroppedImage" area-type="square"></img-crop>
+        </div>
+    </div>
+
+    <div ng-if="ctrl.thumb" class="space-around-wrapper">
+        <img class="circle responsive-img" ng-src="{{ctrl.thumb.url}}"/>
+        <span>{{ctrl.thumb.name}}</span>
+    </div>
+</div>
