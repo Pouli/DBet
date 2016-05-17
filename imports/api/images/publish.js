@@ -1,20 +1,10 @@
-import { Images, Thumbs } from './collection';
+import { Images } from './collection';
 
 if (Meteor.isServer) {
-    Meteor.publish('thumbs', function(id) {
+    Meteor.publish('image', function() {
+        console.log(this.userId);
         if(!this.userId) return null;
 
-        return Thumbs.find({
-            originalStore: 'images',
-            originalId: id
-        });
-    });
-
-    Meteor.publish('images', function(id) {
-        if(!this.userId) return null;
-
-        return Images.find({
-            _id: id
-        });
+        return Images.find();
     });
 }

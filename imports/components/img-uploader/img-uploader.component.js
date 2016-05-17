@@ -1,6 +1,6 @@
 import template from './img-uploader.template.html';
 
-import { Images, Thumbs } from '../../api/images';
+import { Images } from '../../api/images';
 
 import { upload } from '../../api/images';
 
@@ -9,15 +9,14 @@ class ImgUploaderController {
     constructor($scope, $reactive) {
         $reactive(this).attach($scope);
 
-        this.subscribe('thumbs', () => [this.getReactively('imageId')]);
+        this.subscribe('image');
 
         this.helpers({
-            thumb() {
+            image() {
                 const id = this.getReactively('imageId');
 
-                return Thumbs.findOne({
-                    originalStore: 'images',
-                    originalId: id
+                return Images.findOne({
+                    _id: id
                 });
             }
         });
@@ -63,6 +62,7 @@ const ImgUploaderComponent = {
     controller: ImgUploaderController,
     controllerAs: 'ctrl',
     bindings: {
+        type: '@',
         imageId: '=?'
     }
 };

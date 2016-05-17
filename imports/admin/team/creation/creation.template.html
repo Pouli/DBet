@@ -1,34 +1,40 @@
-<form name="creationForm" class="col s12" ng-submit="ctrl.login(creationForm.$valid)">
-    <div class="input-field">
-        <input type="text" name="country" ng-model="ctrl.newTeam.country" ng-required="true">
-        <label>Pays</label>
+<form name="creationForm" ng-submit="ctrl.login(creationForm.$valid)">
+    <div class="row">
+        <div class="input-field col s12 m6 offset-m3">
+            <input type="text" name="country" ng-model="ctrl.newTeam.country" ng-required="true">
+            <label>Pays</label>
 
-        <div ng-messages="creationForm.email.$error" ng-if="creationForm.email.$touched || creationForm.email.$dirty">
-            <div ng-message="required" class="warn-main-color">Veuillez entrer le pays de votre équipe</div>
+            <div ng-messages="creationForm.email.$error" ng-if="creationForm.email.$touched || creationForm.email.$dirty">
+                <div ng-message="required" class="warn-main-color">Veuillez entrer le pays de votre équipe</div>
+            </div>
+        </div>
+
+        <div class="input-field col s12 m6 offset-m3">
+            <input type="text" name="coach" ng-model="ctrl.newTeam.coach" ng-required="true">
+            <label>Entraineur</label>
+
+            <div ng-messages="creationForm.coach.$error" ng-if="creationForm.coach.$touched || creationForm.coach.$dirty">
+                <div ng-message="required" class="warn-main-color">Veuillez entrer le nom du coach de votre équipe</div>
+            </div>
+        </div>
+
+        <div class="input-field col s12 m6 offset-m3">
+            <input type="text" name="captain" ng-model="ctrl.newTeam.captain" ng-required="true">
+            <label>Entraineur</label>
+
+            <div ng-messages="creationForm.captain.$error" ng-if="creationForm.captain.$touched || creationForm.captain.$dirty">
+                <div ng-message="required" class="warn-main-color">Veuillez entrer le nom du capitaine de votre équipe</div>
+            </div>
+        </div>
+
+        <div class="col s12 m6 offset-m3">
+            <img-uploader type='logo' image-id="ctrl.newTeam.logo"></img-uploader>
+        </div>
+
+        <div class="col s12 m6 offset-m3 center-align">
+            <button class="btn waves-effect waves-light light-blue darken-1" type="submit" ng-disabled="!creationForm.$valid">
+                Sauvegarder<i class="material-icons right">save</i>
+            </button>
         </div>
     </div>
-
-    <div class="input-field">
-        <input type="text" name="coach" ng-model="ctrl.newTeam.coach" ng-required="true">
-        <label>Entraineur</label>
-
-        <div ng-messages="creationForm.coach.$error" ng-if="creationForm.coach.$touched || creationForm.coach.$dirty">
-            <div ng-message="required" class="warn-main-color">Veuillez entrer le nom du coach de votre équipe</div>
-        </div>
-    </div>
-
-    <div class="input-field">
-        <input type="text" name="captain" ng-model="ctrl.newTeam.captain" ng-required="true">
-        <label>Entraineur</label>
-
-        <div ng-messages="creationForm.captain.$error" ng-if="creationForm.captain.$touched || creationForm.captain.$dirty">
-            <div ng-message="required" class="warn-main-color">Veuillez entrer le nom du capitaine de votre équipe</div>
-        </div>
-    </div>
-
-    <img-uploader image-id="ctrl.newTeam.logo"></img-uploader>
-
-    <button class="btn waves-effect waves-light light-blue darken-1" type="submit" ng-disabled="!creationForm.$valid">
-        Sauvegarder<i class="material-icons right">save</i>
-    </button>
 </form>

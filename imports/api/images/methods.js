@@ -11,20 +11,20 @@ import { dataURLToBlob, blobToArrayBuffer } from './helpers';
  * @param  {Function} reject  [description]
  */
 export function upload(dataUrl, name, resolve, reject) {
-    const blob = dataURLToBlob(dataUrl);
-    blob.name = name;
+  const blob = dataURLToBlob(dataUrl);
+  blob.name = name;
 
-    const file = _.pick(blob, 'name', 'type', 'size');
+  const file = _.pick(blob, 'name', 'type', 'size');
 
-    blobToArrayBuffer(blob, (data) => {
-        const upload = new UploadFS.Uploader({
-            data,
-            file,
-            store: ImagesStore,
-            onError: reject,
-            onComplete: resolve
-        });
+  blobToArrayBuffer(blob, (data) => {
+    const upload = new UploadFS.Uploader({
+      data,
+      file,
+      store: ImagesStore,
+      onError: reject,
+      onComplete: resolve
+    });
 
-        upload.start();
-    }, reject);
+    upload.start();
+  }, reject);
 }

@@ -48,19 +48,27 @@ $default-font-color: #424242;
 }
 
 // Flexbox util
-.flex-wrapper {
-    display: inline-flex;
-    align-items: center;
+.flex {
+    display: flex;
 }
 
-.space-around-wrapper {
-    display: flex;
+.justify-center {
+    justify-content: center;
+}
+
+.justify-space-around {
     justify-content: space-around;
 }
 
-.column-direction {
+.align-center {
+    align-items: center;
+}
+
+.direction-column {
     flex-direction: column;
 }
+
+
 
 // Navbar settings
 .logo-core {
@@ -109,6 +117,10 @@ $default-font-color: #424242;
     margin-bottom: 0;
 }
 
+.simple-margin-bottom {
+    margin-bottom: 1rem;
+}
+
 .rank-display {
     font-size: 4rem;
     font-weight: bold;
@@ -133,25 +145,18 @@ $default-font-color: #424242;
 img-uploader {
     .drop-box {
         background: #F8F8F8;
-        border: 5px dashed #DDD;
+        border: 5px dashed $secondary-light-color;
         text-align: center;
-        padding: 25px;
-        margin-left: 10px;
-        margin-bottom: 20px;
+        padding: 1rem;
     }
     .drop-box.dragover {
-        border: 5px dashed blue;
+        border: 5px dashed $secondary-main-color;
     }
     .drop-box.dragover-err {
-        border: 5px dashed red;
-    }
-    .ng-crop {
-        h4 {
-            margin-top: 0;
-        }
+        border: 5px dashed $warn-main-color;
     }
     .ng-crop-container {
-        width: 400px;
-        height: 225px;
+        width: 500px;
+        height: 300px;
     }
 }

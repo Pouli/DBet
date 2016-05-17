@@ -1,38 +1,51 @@
-<div class="space-around-wrapper column-direction">
-    <div ngf-drop
-        ngf-select
-        ngf-change="ctrl.addImages($files)"
-        ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}"
-        class="drop-box"
-        ngf-multiple="false"
-        ngf-allow-dir="false"
-        ngf-accept="'image/*'"
-        ngf-drop-available="true"
-        ng-hide="ctrl.cropImgSrc">
+<div ngf-drop
+    ngf-select
+    ngf-change="ctrl.addImages($files)"
+    ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}"
+    class="drop-box simple-margin-bottom"
+    ngf-multiple="false"
+    ngf-allow-dir="false"
+    ngf-accept="'image/*'"
+    ngf-drop-available="true"
+    ng-hide="ctrl.cropImgSrc">
 
-        <div>Cliquez ici pour séléctionner un image</div>
-
-        <div>
-          <strong>OU</strong>
+    <div ng-switch="ctrl.type">
+        <div ng-switch-when="profil" class="flex direction-column align-center justify-space-around">
+            <span>Cliquez ici pour sélectionner votre photo de profil</span>
+            <span><strong>OU</strong></span>
+            <span>Vous pouvez aussi déposer votre photo de profil ici</span>
         </div>
 
-        <div>Vous pouvez aussi déposer l'image ici</div>
-    </div>
-
-    <div ng-show="ctrl.cropImgSrc" class="space-around-wrapper column-direction ng-crop">
-        <div>
-            <h4>Ajuster votre image</h4>
-            <a class="waves-effect waves-light btn secondary-main-color-back" ng-click="ctrl.save()"><i class="material-icons left">save</i>Sauvegarder l'image</a>
-            <a class="waves-effect waves-light btn warn-main-color-back" ng-click="ctrl.reset()"><i class="material-icons left">cancel</i>Annuler</a>
+        <div ng-switch-when="logo" class="flex direction-column align-center justify-space-around">
+            <span>Cliquez ici pour sélectionner un logo</span>
+            <span><strong>OU</strong></span>
+            <span>Vous pouvez aussi déposer un logo</span>
         </div>
 
-        <div class="ng-crop-container">
-            <img-crop image="ctrl.cropImgSrc" result-image="ctrl.myCroppedImage" area-type="square"></img-crop>
+        <div ng-switch-default class="flex direction-column align-center justify-space-around">
+            <span>Cliquez ici pour sélectionner une image</span>
+            <span><strong>OU</strong></span>
+            <span>Vous pouvez aussi déposer une image</span>
         </div>
     </div>
+</div>
 
-    <div ng-if="ctrl.thumb" class="space-around-wrapper">
-        <img class="circle responsive-img" ng-src="{{ctrl.thumb.url}}"/>
-        <span>{{ctrl.thumb.name}}</span>
+<div ng-show="ctrl.cropImgSrc" class="flex direction-column justify-space-around ng-crop simple-margin-bottom">
+    <h5 class="center-align">Ajuster votre image</h5>
+
+    <div class="ng-crop-container simple-margin-bottom">
+        <img-crop image="ctrl.cropImgSrc" result-image="ctrl.myCroppedImage" area-type="square"></img-crop>
+    </div>
+
+    <div class="center-align simple-margin-bottom">
+        <a class="btn-floating btn-large waves-effect waves-light third-main-color-back" ng-click="ctrl.save()"><i class="material-icons">check</i></a>
+        <a class="btn-floating btn-large waves-effect waves-light warn-main-color-back" ng-click="ctrl.reset()"><i class="material-icons">clear</i></a>
+    </div>
+</div>
+
+<div class="flex justify-center simple-margin-bottom">
+    <div ng-if="ctrl.image" class="chip">
+        <img src="{{ctrl.image.url}}">
+        {{ctrl.image.name}}
     </div>
 </div>
