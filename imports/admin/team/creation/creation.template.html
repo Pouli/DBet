@@ -1,4 +1,4 @@
-<form name="creationForm" ng-submit="ctrl.login(creationForm.$valid)">
+<form name="creationForm" ng-submit="ctrl.saveTeam(creationForm.$valid)">
     <div class="row">
         <div class="input-field col s12 m6 offset-m3">
             <input type="text" name="country" ng-model="ctrl.newTeam.country" ng-required="true">
@@ -20,7 +20,7 @@
 
         <div class="input-field col s12 m6 offset-m3">
             <input type="text" name="captain" ng-model="ctrl.newTeam.captain" ng-required="true">
-            <label>Entraineur</label>
+            <label>Capitaine</label>
 
             <div ng-messages="creationForm.captain.$error" ng-if="creationForm.captain.$touched || creationForm.captain.$dirty">
                 <div ng-message="required" class="warn-main-color">Veuillez entrer le nom du capitaine de votre équipe</div>

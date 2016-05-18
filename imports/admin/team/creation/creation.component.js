@@ -1,9 +1,10 @@
-import { Teams } from '../../../api/teams.js';
+import { Teams } from '../../../api/teams';
 
 class CreationController {
     /*@ngInject*/
-    constructor($scope, $reactive) {
+    constructor($scope, $reactive, $state) {
         $reactive(this).attach($scope);
+        this.$state = $state;
 
         this.newTeam = {
             country: '',
@@ -13,16 +14,16 @@ class CreationController {
         }
     }
 
-    saveTeam() {
-        Teams.insert({
-            country: this.newTeam.country,
-            coach: this.newTeam.coach,
-            captain: this.newTeam.captain,
-            logo: this.newTeam.logo,
-            createdAt: new Date
-        });
+    saveTeam(isValid) {
+        if(!isValid) return;
 
-        this.newMatch = { country: '', coach: '', captain: '', logo: '' };
+        Teams.insert(this.newTeam, (err) => {
+            if(err) {
+                this.newMatch = { country: '', coach: '', captain: '', logo: '' };
+                return;
+            }
+            this.$state.go('admin.team');
+        });
     }
 }
 
