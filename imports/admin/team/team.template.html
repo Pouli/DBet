@@ -4,58 +4,31 @@
     </a>
 </div>
 
-<div class="section">
+<div class="section" ng-repeat="team in ctrl.teams">
     <div class="col s8 offset-s2">
         <div class="row valign-wrapper">
             <div class="col s2">
-                <img src="images/logo-france.png" class="circle responsive-img" alt="" />
+                <img ng-src="{{team.logo.url}}" class="circle responsive-img" alt="" />
             </div>
             <div class="col s8 column-direction space-around-wrapper">
-                <span class="team-country-shape principal-main-color">France</span>
+                <span class="team-country-shape principal-main-color">{{team.country}}</span>
 
                 <div class="section">
                     <span class="team-label-shape secondary-main-color">Entraineur: </span>
-                    <span class="default-font-shape">Didier Deschamp</span>
+                    <span class="default-font-shape">{{team.coach}}</span>
                 </div>
 
                 <div class="section">
                     <span class="team-label-shape secondary-main-color">Capitaine: </span>
-                    <span class="default-font-shape">Hugo Lloris</span>
+                    <span class="default-font-shape">{{team.captain}}</span>
                 </div>
             </div>
             <div class="col s2 space-around-wrapper">
-                <i class="material-icons small secondary-main-color">edit</i>
-                <i class="material-icons small warn-main-color">delete</i>
+                <i ui-sref="admin.team.edition({ id: team._id })" class="material-icons small secondary-main-color">edit</i>
+                <i ng-click="ctrl.removeTeam(team._id)" class="material-icons small warn-main-color">delete</i>
             </div>
         </div>
     </div>
 </div>
 
 <div class="divider"></div>
-
-<div class="section">
-    <div class="col s8 offset-s2">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="images/logo-france.png" class="circle responsive-img" alt="" />
-            </div>
-            <div class="col s8 column-direction space-around-wrapper">
-                <span class="team-country-shape principal-main-color">France</span>
-
-                <div class="section">
-                    <span class="team-label-shape secondary-main-color">Entraineur: </span>
-                    <span class="default-font-shape">Didier Deschamp</span>
-                </div>
-
-                <div class="section">
-                    <span class="team-label-shape secondary-main-color">Capitaine: </span>
-                    <span class="default-font-shape">Hugo Lloris</span>
-                </div>
-            </div>
-            <div class="col s2 space-around-wrapper">
-                <i class="material-icons small secondary-main-color">edit</i>
-                <i class="material-icons small warn-main-color">delete</i>
-            </div>
-        </div>
-    </div>
-</div>

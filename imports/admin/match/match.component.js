@@ -1,3 +1,5 @@
+import './match.template.html';
+
 import template from './match.template.html';
 
 class matchController {}

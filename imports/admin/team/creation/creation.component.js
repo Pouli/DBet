@@ -1,16 +1,19 @@
+import './creation.template.html';
+
 import { Teams } from '../../../api/teams';
 
 class CreationController {
     /*@ngInject*/
-    constructor($scope, $reactive, $state) {
+    constructor($scope, $reactive, $state, MessageService) {
         $reactive(this).attach($scope);
         this.$state = $state;
+        this.MessageService = MessageService;
 
         this.newTeam = {
             country: '',
             coach: '',
             captain: '',
-            logo: ''
+            logo: {}
         }
     }
 
@@ -19,8 +22,8 @@ class CreationController {
 
         Teams.insert(this.newTeam, (err) => {
             if(err) {
-                this.newMatch = { country: '', coach: '', captain: '', logo: '' };
-                return;
+                this.newMatch = { country: '', coach: '', captain: '', logo: {} };
+                return this.MessageService.showMessage(err.massage);
             }
             this.$state.go('admin.team');
         });

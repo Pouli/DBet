@@ -1,8 +1,9 @@
-<form name="creationForm" ng-submit="ctrl.saveTeam(creationForm.$valid)">
+<form name="creationForm">
     <div class="row">
         <div class="input-field col s12 m6 offset-m3">
-            <input type="text" name="country" ng-model="ctrl.newTeam.country" ng-required="true">
-            <label>Pays</label>
+            <input type="text" name="country" ng-model="ctrl.team.country" ng-change="ctrl.saveField('country')" ng-model-options="{updateOn: 'blur'}" ng-required="true">
+            <label ng-if="!ctrl.team.country">Pays</label>
+            <label ng-if="ctrl.team.country" class="active">Pays</label>
 
             <div ng-messages="creationForm.email.$error" ng-if="creationForm.email.$touched || creationForm.email.$dirty">
                 <div ng-message="required" class="warn-main-color">Veuillez entrer le pays de votre équipe</div>
@@ -10,8 +11,9 @@
         </div>
 
         <div class="input-field col s12 m6 offset-m3">
-            <input type="text" name="coach" ng-model="ctrl.newTeam.coach" ng-required="true">
-            <label>Entraineur</label>
+            <input type="text" name="coach" ng-model="ctrl.team.coach" ng-change="ctrl.saveField('coach')" ng-model-options="{updateOn: 'blur'}" ng-required="true">
+            <label ng-if="!ctrl.team.coach">Entraineur</label>
+            <label ng-if="ctrl.team.coach" class="active">Entraineur</label>
 
             <div ng-messages="creationForm.coach.$error" ng-if="creationForm.coach.$touched || creationForm.coach.$dirty">
                 <div ng-message="required" class="warn-main-color">Veuillez entrer le nom du coach de votre équipe</div>
@@ -19,8 +21,9 @@
         </div>
 
         <div class="input-field col s12 m6 offset-m3">
-            <input type="text" name="captain" ng-model="ctrl.newTeam.captain" ng-required="true">
-            <label>Capitaine</label>
+            <input type="text" name="captain" ng-model="ctrl.team.captain" ng-change="ctrl.saveField('captain')" ng-model-options="{updateOn: 'blur'}" ng-required="true">
+            <label ng-if="!ctrl.team.captain">Capitaine</label>
+            <label ng-if="ctrl.team.captain" class="active">Capitaine</label>
 
             <div ng-messages="creationForm.captain.$error" ng-if="creationForm.captain.$touched || creationForm.captain.$dirty">
                 <div ng-message="required" class="warn-main-color">Veuillez entrer le nom du capitaine de votre équipe</div>
@@ -28,13 +31,7 @@
         </div>
 
         <div class="col s12 m6 offset-m3">
-            <img-uploader type='logo' image-info="ctrl.newTeam.logo"></img-uploader>
-        </div>
-
-        <div class="col s12 m6 offset-m3 center-align">
-            <button class="btn waves-effect waves-light light-blue darken-1" type="submit" ng-disabled="!creationForm.$valid">
-                Sauvegarder<i class="material-icons right">save</i>
-            </button>
+            <img-uploader type='logo' image-info="ctrl.team.logo"></img-uploader>
         </div>
     </div>
 </form>

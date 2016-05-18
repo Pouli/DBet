@@ -13,10 +13,10 @@ class ImgUploaderController {
 
         this.helpers({
             image() {
-                const id = this.getReactively('imageId');
+                const info = this.getReactively('imageInfo');
 
                 return Images.findOne({
-                    _id: id
+                    _id: info.id
                 });
             }
         });
@@ -41,10 +41,10 @@ class ImgUploaderController {
 
     save() {
         upload(this.myCroppedImage, this.currentFile.name, this.$bindToContext((file) => {
-            if(this.imageId) {
-                Images.remove(this.imageId);
+            if(!_.isEmpty(this.imageInfo)) {
+                Images.remove(this.imageInfo.id);
             }
-            this.imageId = file._id;
+            this.imageInfo = {id: file._id, url: file.url};
             this.reset();
         }), (e) => {
             console.log('Loading error', e);
@@ -63,7 +63,7 @@ const ImgUploaderComponent = {
     controllerAs: 'ctrl',
     bindings: {
         type: '@',
-        imageId: '=?'
+        imageInfo: '=?'
     }
 };
 

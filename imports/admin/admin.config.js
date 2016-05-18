@@ -38,6 +38,14 @@ class AdminConfig {
                         template: '<admin-team-creation></admin-team-creation>'
                     }
                 }
+            })
+            .state('admin.team.edition', {
+                url: '/:id',
+                views: {
+                    'content@': {
+                        template: '<admin-team-edition></admin-team-edition>'
+                    }
+                }
             });
     }
 }
