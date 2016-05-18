@@ -4,8 +4,9 @@ import { Teams } from '../../api/teams';
 
 class TeamController {
     /*@ngInject*/
-    constructor($scope, $reactive) {
+    constructor($scope, $reactive, MessageService) {
         $reactive(this).attach($scope);
+        this.MessageService = MessageService;
 
         this.subscribe('teams');
 
@@ -18,7 +19,7 @@ class TeamController {
 
     removeTeam(id) {
         Teams.remove(id, (err) => {
-            if(err) console.log(err);
+            if(err) return this.MessageService.showMessage(err.message);
         });
     }
 }

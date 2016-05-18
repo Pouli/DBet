@@ -6,8 +6,6 @@ class CreationController {
     /*@ngInject*/
     constructor($scope, $reactive, $stateParams, MessageService) {
         $reactive(this).attach($scope);
-
-        this.$scope = $scope;
         this.MessageService = MessageService;
 
         this.teamId = $stateParams.id;
