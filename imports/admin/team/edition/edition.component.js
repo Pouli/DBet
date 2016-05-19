@@ -2,7 +2,7 @@ import './edition.template.html';
 
 import { Teams } from '../../../api/teams';
 
-class CreationController {
+class EditionController {
     /*@ngInject*/
     constructor($scope, $reactive, $stateParams, MessageService) {
         $reactive(this).attach($scope);
@@ -16,7 +16,7 @@ class CreationController {
             team() {
                 return Teams.findOne({ _id: this.teamId });
             }
-        })
+        });
     }
 
     saveField(field) {
@@ -33,10 +33,10 @@ class CreationController {
     }
 }
 
-const CreationComponent = {
+const EditionComponent = {
     templateUrl: 'imports/admin/team/edition/edition.template.html',
-    controller: CreationController,
+    controller: EditionController,
     controllerAs: 'ctrl'
 }
 
-export default CreationComponent;
+export default EditionComponent;
