@@ -3,8 +3,6 @@ import { Accounts } from 'meteor/accounts-base';
 
 import './navbar.template.html';
 
-const name = 'auth';
-
 class NavbarController {
     /*@ngInject*/
     constructor($scope, $reactive, $state, $timeout) {
@@ -15,9 +13,6 @@ class NavbarController {
 
         this.helpers({
             isLoggedIn() {
-                $timeout(function() {
-                    $('.dropdown-button').dropdown();
-                });
                 return !!Meteor.userId();
             },
             currentUser() {
@@ -43,10 +38,6 @@ class NavbarController {
     }
 }
 
-function initSideNav($timeout) {
-    $timeout(() => $('.button-collapse').sideNav({closeOnClick: true}));
-}
-
 const NavbarComponent = {
     templateUrl: 'imports/components/navbar/navbar.template.html',
     controller: NavbarController,
@@ -54,3 +45,8 @@ const NavbarComponent = {
 };
 
 export default NavbarComponent;
+
+
+function initSideNav($timeout) {
+    $timeout(() => $('.button-collapse').sideNav({closeOnClick: true}));
+}

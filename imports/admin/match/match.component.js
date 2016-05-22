@@ -1,13 +1,11 @@
 import './match.template.html';
 
-import template from './match.template.html';
-
 class matchController {}
 
-const mactchComponent = {
+const matchComponent = {
     templateUrl: 'imports/admin/match/match.template.html',
     controller: matchController,
     controllerAs: 'ctrl'
 }
 
-export default mactchComponent;
+export default matchComponent;

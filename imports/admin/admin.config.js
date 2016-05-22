@@ -3,9 +3,8 @@ class AdminConfig {
         'ngInject';
         $stateProvider
             .state('admin', {
-                abstract: true,
                 url: '/admin',
-                template: '<ui-view/>',
+                abstract: true,
                 resolve: {
                     isLoggedIn: (AuthService) => {
                         return AuthService.isLoggedIn();
