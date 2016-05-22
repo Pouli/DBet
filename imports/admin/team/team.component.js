@@ -1,6 +1,7 @@
 import './team.template.html';
 
 import { Teams } from '../../api/teams';
+import { Images } from '../../api/images';
 
 class TeamController {
     /*@ngInject*/
@@ -18,6 +19,14 @@ class TeamController {
     }
 
     removeTeam(id) {
+        const team = Teams.findOne({ _id: id });
+
+        if(team && team.logo.id) {
+            Images.remove(team.logo.id, (err) => {
+                if(err) this.MessageService.showMessage(err.message);
+            })
+        }
+
         Teams.remove(id, (err) => {
             if(err) return this.MessageService.showMessage(err.message);
         });

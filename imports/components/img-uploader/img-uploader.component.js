@@ -15,9 +15,7 @@ class ImgUploaderController {
             image() {
                 const info = this.getReactively('imageInfo');
 
-                return Images.findOne({
-                    _id: info.id
-                });
+                return Images.findOne({ _id: info.id });
             }
         });
     }
