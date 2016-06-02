@@ -1,0 +1,55 @@
+<form name="creationForm" ng-submit="ctrl.saveMatch(creationForm.$valid)">
+    <div class="row">
+        <div class="input-field col s12 m6 offset-m3">
+            <select name="homeTeam" ng-model="ctrl.newMatch.homeTeam" ng-required="true">
+                <option value="" disabled selected>Sélectionner l'équipe jouant à domicile</option>
+                <option ng-repeat="team in ctrl.teams" value="{{team._id}}">{{team.country}}</option>
+            </select>
+            <label>Equipe à domicile</label>
+
+            <div ng-messages="creationForm.homeTeam.$error" ng-if="creationForm.homeTeam.$touched || creationForm.homeTeam.$dirty">
+                <div ng-message="required">Champs requis</div>
+            </div>
+        </div>
+
+        <div class="input-field col s12 m6 offset-m3">
+            <select name="awayTeam" ng-model="ctrl.newMatch.awayTeam" ng-required="true">
+                <option value="" disabled selected>Sélectionner l'équipe jouant à l'extérieur</option>
+                <option ng-repeat="team in ctrl.teams" value="{{team._id}}">{{team.country}}</option>
+            </select>
+            <label>Equipe à l'extérieur</label>
+
+            <div ng-messages="creationForm.awayTeam.$error" ng-if="creationForm.awayTeam.$touched || creationForm.awayTeam.$dirty">
+                <div ng-message="required">Champs requis</div>
+            </div>
+        </div>
+
+        <div class="input-field col s12 m6 offset-m3">
+            <input type="text" name="stadium" ng-model="ctrl.newMatch.stadium" ng-required="true">
+            <label ng-if="!ctrl.newMatch.stadium">Stade</label>
+            <label ng-if="ctrl.newMatch.stadium" class="active">Stade</label>
+
+            <div ng-messages="creationForm.stadium.$error" ng-if="creationForm.stadium.$touched || creationForm.stadium.$dirty">
+                <div ng-message="required">Veuillez saisir un nom de stade.</div>
+            </div>
+        </div>
+
+        <div class="input-field col s12 m6 offset-m3">
+            <input type="date" class="datepicker" ng-model="ctrl.newMatch.date">
+            <label ng-if="!ctrl.newMatch.date">Date</label>
+            <label ng-if="ctrl.newMatch.date" class="active">Date</label>
+        </div>
+
+        <div class="input-field col s12 m6 offset-m3">
+            <input class="timepicker" ng-model="ctrl.newMatch.time">
+            <label ng-if="!ctrl.newMatch.time">Time</label>
+            <label ng-if="ctrl.newMatch.time" class="active">Time</label>
+        </div>
+
+        <div class="col s12 m6 offset-m3 center-align">
+            <button class="btn waves-effect waves-light light-blue darken-1" type="submit" ng-disabled="!creationForm.$valid">
+                Sauvegarder<i class="material-icons right">save</i>
+            </button>
+        </div>
+    </div>
+</form>

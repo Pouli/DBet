@@ -22,6 +22,14 @@ class AdminConfig {
                     }
                 }
             })
+            .state('admin.match.creation', {
+                url: '/match',
+                views: {
+                    'content@': {
+                        template: '<admin-match-creation></admin-match-creation>'
+                    }
+                }
+            })
             .state('admin.team', {
                 url: '/team',
                 views: {
