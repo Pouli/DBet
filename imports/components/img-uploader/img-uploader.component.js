@@ -41,8 +41,12 @@ class ImgUploaderController {
         upload(this.myCroppedImage, this.currentFile.name, this.$bindToContext((file) => {
             if(!_.isEmpty(this.imageInfo)) {
                 Images.remove(this.imageInfo.id);
+                this.imageInfo.id = file._id;
+                this.imageInfo.url = file.url;
+                this.change();
+            } else {
+                this.imageInfo = {id: file._id, url: file.url};
             }
-            this.imageInfo = {id: file._id, url: file.url};
             this.reset();
         }), (e) => {
             console.log('Loading error', e);
@@ -61,7 +65,8 @@ const ImgUploaderComponent = {
     controllerAs: 'ctrl',
     bindings: {
         type: '@',
-        imageInfo: '=?'
+        imageInfo: '=?',
+        change: '&'
     }
 };
 
