@@ -7,9 +7,9 @@ import 'ng-img-crop/compile/minified/ng-img-crop';
 import 'ng-img-crop/compile/minified/ng-img-crop.css';
 
 import authModule from '../imports/auth/auth.module';
-import matchModule from '../imports/match/match.module';
 import profileModule from '../imports/profile/profile.module';
 import adminModule from '../imports/admin/admin.module';
+import betModule from '../imports/bet/bet.module';
 
 import appConfig from '../imports/app.config';
 
@@ -29,7 +29,7 @@ import appRun from '../imports/app.run';
 
 let app = angular.module('DBetApp', [
     angularMeteor, uiRouter, ngMessages, ngFileUpload, 'ngImgCrop', 
-    authModule.name, profileModule.name, matchModule.name, adminModule.name
+    authModule.name, profileModule.name, adminModule.name, betModule.name
 ]);
 
 app.config(appConfig);

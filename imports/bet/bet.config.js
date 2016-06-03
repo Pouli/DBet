@@ -1,4 +1,4 @@
-class MatchConfig {
+class BetConfig {
     static initRoute ($stateProvider, $urlRouterProvider) {
         'ngInject';
         $stateProvider
@@ -6,8 +6,7 @@ class MatchConfig {
                 url: '/match',
                 views: {
                     'content@': {
-                        templateUrl: 'imports/match/list/list.template.html',
-                        controller: 'ListController as ctrl'
+                        template: '<bet-main></bet-main-match>'
                     }
                 },
                 resolve: {
@@ -23,4 +22,4 @@ class MatchConfig {
     }
 }
 
-export default MatchConfig.initRoute;
+export default BetConfig.initRoute;

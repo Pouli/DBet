@@ -3,7 +3,7 @@ import './match.template.html';
 import { Matchs } from '../../api/matchs';
 import { Teams } from '../../api/teams';
 
-class matchController {
+class MatchController {
     /*@ngInject*/
     constructor($scope, $reactive) {
         $reactive(this).attach($scope);
@@ -19,8 +19,6 @@ class matchController {
                 return Teams.find();
             }
         });
-
-        console.log(this.matchs);
     }
     
     removeMatch(id) {
@@ -32,7 +30,7 @@ class matchController {
 
 const matchComponent = {
     templateUrl: 'imports/admin/match/match.template.html',
-    controller: matchController,
+    controller: MatchController,
     controllerAs: 'ctrl'
 };
 
