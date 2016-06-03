@@ -5,7 +5,7 @@ import './navbar.template.html';
 
 class NavbarController {
     /*@ngInject*/
-    constructor($scope, $reactive, $state) {
+    constructor($scope, $reactive, $state, $timeout) {
         this.$state = $state;
 
         $reactive(this).attach($scope);
