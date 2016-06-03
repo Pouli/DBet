@@ -160,3 +160,19 @@ img-uploader {
         height: 300px;
     }
 }
+
+// Bet -> collapsible
+.row-dispatcher {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo {
+    width: 20%;
+}
+
+.country {
+    width: 60%;
+}

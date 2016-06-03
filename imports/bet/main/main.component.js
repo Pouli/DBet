@@ -7,7 +7,11 @@ class MainController {
     constructor($scope, $reactive) {
         $reactive(this).attach($scope);
 
-        this.subscribe('matchs');
+        this.subscribe('matchs', () => [], {
+            onReady: function () {
+                $('.collapsible').collapsible();
+            }
+        });
 
         this.helpers({
             matchs() {
