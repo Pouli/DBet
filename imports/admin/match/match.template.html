@@ -4,51 +4,49 @@
     </a>
 </div>
 
-<div ng-repeat="match in ctrl.matchs | orderBy: 'date'">
-    <div class="section">
-        <div class="col s10 offset-s1">
-            <div class="row valign-wrapper">
-                <div class="col s10">
-                    <div class="col s12 center-align">
-                        <h6 class="strong-shape secondary-main-color">{{match.stadium}}</h6>
-                    </div>
+<div class="section" ng-repeat="match in ctrl.matchs | orderBy: 'date'">
+    <div class="col s10 offset-s1">
+        <div class="row valign-wrapper">
+            <div class="col s10">
+                <div class="col s12 center-align">
+                    <h6 class="strong-shape secondary-main-color">{{match.stadium}}</h6>
+                </div>
 
-                    <div class="col s12 center-align">
-                        <h6 class="secondary-main-color">{{match.date | date: 'EEEE dd MMMM yyyy'}}</h6>
-                        <h6 class="secondary-main-color">{{match.date | date: 'H:mm'}}</h6>
-                    </div>
+                <div class="col s12 center-align">
+                    <h6 class="secondary-main-color">{{match.date | date: 'EEEE dd MMMM yyyy'}}</h6>
+                    <h6 class="secondary-main-color">{{match.date | date: 'H:mm'}}</h6>
+                </div>
 
-                    <div class="col s12 valign-wrapper">
-                        <div class="col s5 valign-wrapper">
-                            <div class="col s4 center-align">
-                                <img ng-src="{{match.homeTeam.logo.url}}" class="circle responsive-img" alt="" />
-                            </div>
-
-                            <div class="col s8 center-align">
-                                <h5 class="principal-main-color">{{match.homeTeam.country}}</h5>
-                            </div>
+                <div class="col s12 valign-wrapper">
+                    <div class="col s5 valign-wrapper">
+                        <div class="col s4 center-align">
+                            <img ng-src="{{match.homeTeam.logo.url}}" class="circle responsive-img" alt="" />
                         </div>
 
-                        <div class="col s2 center-align">
-                            <h5 class="strong-shape secondary-main-color">-</h5>
+                        <div class="col s8 center-align">
+                            <h5 class="principal-main-color">{{match.homeTeam.country}}</h5>
+                        </div>
+                    </div>
+
+                    <div class="col s2 center-align">
+                        <h5 class="strong-shape secondary-main-color">-</h5>
+                    </div>
+
+                    <div class="col s5 valign-wrapper">
+                        <div class="col s8 center-align">
+                            <h5 class="principal-main-color">{{match.awayTeam.country}}</h5>
                         </div>
 
-                        <div class="col s5 valign-wrapper">
-                            <div class="col s8 center-align">
-                                <h5 class="principal-main-color">{{match.awayTeam.country}}</h5>
-                            </div>
-
-                            <div class="col s4 center-align">
-                                <img ng-src="{{match.awayTeam.logo.url}}" class="circle responsive-img" alt="" />
-                            </div>
+                        <div class="col s4 center-align">
+                            <img ng-src="{{match.awayTeam.logo.url}}" class="circle responsive-img" alt="" />
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="col s2 space-around-wrapper">
-                    <i class="material-icons small secondary-main-color">edit</i>
-                    <i ng-click="ctrl.removeMatch(match._id)" class="material-icons small warn-main-color">delete</i>
-                </div>
+            <div class="col s2 space-around-wrapper">
+                <i class="material-icons small secondary-main-color">edit</i>
+                <i ng-click="ctrl.removeMatch(match._id)" class="material-icons small warn-main-color">delete</i>
             </div>
         </div>
     </div>
