@@ -25,6 +25,18 @@ class MainController {
             }
         });
     }
+
+    saveBet(matchId, value) {
+        Meteor.call('saveBet', matchId, value);
+    }
+
+    isSelected(matchId, value) {
+        const bet = this.bets.filter((item) => item.matchId === matchId);
+
+        if(!bet.length) return false;
+        
+        return bet[0].value === value;
+    }
 }
 
 const mainComponent = {
