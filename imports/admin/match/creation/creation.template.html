@@ -25,6 +25,18 @@
         </div>
 
         <div class="input-field col s12 m6 offset-m3">
+            <select name="group" ng-model="ctrl.newMatch.group" ng-required="true">
+                <option value="" disabled selected>Sélectionner un groupe ou une phase finale</option>
+                <option ng-repeat="group in ctrl.groups" value="{{group.id}}">{{group.label}}</option>
+            </select>
+            <label>Groupe / Phase finale</label>
+
+            <div ng-messages="creationForm.group.$error" ng-if="creationForm.group.$touched || creationForm.group.$dirty">
+                <div ng-message="required">Un groupe ou phase finale est requis</div>
+            </div>
+        </div>
+
+        <div class="input-field col s12 m6 offset-m3">
             <input type="text" name="stadium" ng-model="ctrl.newMatch.stadium" ng-required="true">
             <label ng-if="!ctrl.newMatch.stadium">Stade</label>
             <label ng-if="ctrl.newMatch.stadium" class="active">Stade</label>

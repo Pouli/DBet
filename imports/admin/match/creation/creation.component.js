@@ -5,13 +5,14 @@ import { Matchs } from '../../../api/matchs';
 
 class CreationController {
     /*@ngInject*/
-    constructor($scope, $reactive, $timeout, $state, MessageService) {
+    constructor($scope, $reactive, $timeout, $state, GROUPS, MessageService) {
         $reactive(this).attach($scope);
 
         this.$state = $state;
+        this.groups = GROUPS;
         this.MessageService = MessageService;
 
-        this.newMatch = { homeTeam: '', awayTeam: '', stadium: '', date: '', time: '' };
+        this.newMatch = { homeTeam: '', awayTeam: '', group: '', stadium: '', date: '', time: '' };
 
         this.subscribe('teams');
 

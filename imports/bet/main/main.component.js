@@ -39,8 +39,8 @@ class MainController {
     }
 
     getDistinctGroups() {
-        let filter = this.matchs.filter((item) => !!item.groups);
-        return _.chain(filter).uniq('groups').pluck('groups').value();
+        let filter = this.matchs.filter((item) => !!item.group);
+        return _.chain(filter).uniq('group').pluck('group').value();
     }
 }
 

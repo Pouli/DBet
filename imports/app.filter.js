@@ -9,3 +9,11 @@ export const displayNameFilter = () => {
         return user;
     }
 };
+
+export const convertGroupId = (GROUPS) => {
+    return (input) => {
+        return GROUPS
+            .filter(elem => elem.id === input)
+            .map(elem => elem.label)[0];
+    };
+};

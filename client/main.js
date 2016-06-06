@@ -14,8 +14,10 @@ import betModule from '../imports/bet/bet.module';
 import appConfig from '../imports/app.config';
 
 import { DEPARTMENTS } from '../imports/app.constant';
+import { GROUPS } from '../imports/app.constant';
 
 import { displayNameFilter } from '../imports/app.filter';
+import { convertGroupId } from '../imports/app.filter';
 
 import AuthService from '../imports/_shared/auth.service';
 import MessageService from '../imports/_shared/message.service';
@@ -35,8 +37,10 @@ let app = angular.module('DBetApp', [
 app.config(appConfig);
 
 app.constant('DEPARTMENTS', DEPARTMENTS);
+app.constant('GROUPS', GROUPS);
 
 app.filter('displayNameFilter', displayNameFilter);
+app.filter('convertGroupId', convertGroupId);
 
 app.service('AuthService', AuthService);
 app.service('MessageService', MessageService);
