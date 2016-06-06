@@ -5,8 +5,10 @@ import { Bets } from '../../api/bets';
 
 class MainController {
     /*@ngInject*/
-    constructor($scope, $reactive) {
+    constructor($scope, $reactive, MessageService) {
         $reactive(this).attach($scope);
+
+        this.MessageService = MessageService;
 
         this.subscribe('matchs', () => [], {
             onReady: function () {
@@ -27,7 +29,11 @@ class MainController {
     }
 
     saveBet(matchId, value) {
-        Meteor.call('saveBet', matchId, value);
+        Meteor.call('saveBet', matchId, value, (err) => {
+            if(err) return this.MessageService.showMessageQuick(err.message);
+
+            return this.MessageService.showMessageQuick('Saved');
+        });
     }
 
     isSelected(matchId, value) {
