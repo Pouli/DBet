@@ -1,23 +1,28 @@
 class AvatarController {
     /*@ngInject*/
-    constructor($scope, $reactive) {
+    constructor($scope, $reactive, $timeout) {
         $reactive(this).attach($scope);
 
+        this.subscribe('userData');
+
         this.helpers({
-            currentUser() {
-                return Meteor.user();
+            userData() {
+                return Meteor.users.find();
             }
         });
 
-        console.log(Roles.userIsInRole(Meteor.userId(), 'ROLE_PLAYER'));
+        $timeout(() => $('.modal-trigger').leanModal());
     }
 
+    updateProfilePicture() {
+        Meteor.call('updateProfilePicture', this.userData[0].profile.picture);
+    }
 }
 
 const AvatarComponent = {
     templateUrl: 'imports/profile/avatar/avatar.template.html',
     controller: AvatarController,
     controllerAs: 'ctrl'
-}
+};
 
 export default AvatarComponent;

@@ -14,14 +14,14 @@ class MainController {
             }
         });
 
-        this.subscribe('bets', () => [ Meteor.userId() ]);
+        this.subscribe('bets');
 
         this.helpers({
             matchs() {
                 return Matchs.find();
             },
             bets() {
-                return Bets.find({ userId: Meteor.userId() });
+                return Bets.find();
             }
         });
     }
