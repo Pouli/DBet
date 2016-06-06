@@ -37,6 +37,11 @@ class MainController {
         
         return bet[0].value === value;
     }
+
+    getDistinctGroups() {
+        let filter = this.matchs.filter((item) => !!item.groups);
+        return _.chain(filter).uniq('groups').pluck('groups').value();
+    }
 }
 
 const mainComponent = {

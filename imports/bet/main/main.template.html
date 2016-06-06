@@ -1,77 +1,85 @@
-<div class="section" ng-repeat="match in ctrl.matchs | orderBy: 'date'">
-    <ul class="collapsible">
-        <li>
-            <div class="collapsible-header">
-                <div class="row no-bottom-margin valign-wrapper">
-                    <a class="col s5 row-dispatcher waves-effect" ng-class="{ 'bet-selection': ctrl.isSelected(match._id, '1') }" ng-click="ctrl.saveBet(match._id, '1')">
-                        <div class="logo valign-wrapper">
-                            <img ng-src="{{match.homeTeam.logo.url}}" class="circle responsive-img" alt="" />
+
+<ul class="collapsible popout" data-collapsible="accordion">
+    <li ng-repeat="groups in ctrl.getDistinctGroups()">
+        <div class="collapsible-header">{{groups}}</div>
+        <div class="collapsible-body add-padding">
+            <div class="section" ng-repeat="match in ctrl.matchs | filter: { groups : groups } | orderBy: 'date'">
+                <ul class="collapsible">
+                    <li>
+                        <div class="collapsible-header">
+                            <div class="row no-bottom-margin valign-wrapper">
+                                <a class="col s5 row-dispatcher waves-effect" ng-class="{ 'bet-selection': ctrl.isSelected(match._id, '1') }" ng-click="ctrl.saveBet(match._id, '1')">
+                                    <div class="logo valign-wrapper">
+                                        <img ng-src="{{match.homeTeam.logo.url}}" class="circle responsive-img" alt="" />
+                                    </div>
+
+                                    <div class="country">
+                                        <p class="principal-main-color strong-shape center-align flow-text truncate">{{match.homeTeam.country}}</p>
+                                    </div>
+                                </a>
+
+                                <a class="col s2 center-align waves-effect" ng-class="{ 'bet-selection': ctrl.isSelected(match._id, 'N') }" ng-click="ctrl.saveBet(match._id, 'N')">
+                                    <p class="strong-shape secondary-main-color flow-text truncate">-</p>
+                                </a>
+
+                                <div class="col s5 row-dispatcher waves-effect" ng-class="{ 'bet-selection': ctrl.isSelected(match._id, '2') }" ng-click="ctrl.saveBet(match._id, '2')">
+                                    <div class="country">
+                                        <p class="principal-main-color strong-shape center-align flow-text truncate">{{match.awayTeam.country}}</p>
+                                    </div>
+
+                                    <div class="logo valign-wrapper">
+                                        <img ng-src="{{match.awayTeam.logo.url}}" class="circle responsive-img" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header">
+                            <div class="row no-bottom-margin">
+                                <div class="col s12">
+                                    <p class="secondary-main-color center-align flow-text truncate">Détails</p>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="country">
-                            <p class="principal-main-color strong-shape center-align flow-text truncate">{{match.homeTeam.country}}</p>
-                        </div>
-                    </a>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="col s12 center-align">
+                                    <h5 class="strong-shape secondary-main-color">{{match.stadium}}</h5>
+                                    <h6 class="secondary-main-color">{{match.date | date: 'EEEE dd MMMM yyyy'}}</h6>
+                                    <h6 class="secondary-main-color">{{match.date | date: 'H:mm'}}</h6>
+                                </div>
 
-                    <a class="col s2 center-align waves-effect" ng-class="{ 'bet-selection': ctrl.isSelected(match._id, 'N') }" ng-click="ctrl.saveBet(match._id, 'N')">
-                        <p class="strong-shape secondary-main-color flow-text truncate">-</p>
-                    </a>
+                                <div class="col s6">
+                                    <div class="section center-align">
+                                        <span class="team-label-shape secondary-main-color">Entraineur: </span>
+                                        <span class="default-font-shape">{{match.homeTeam.coach}}</span>
+                                    </div>
 
-                    <div class="col s5 row-dispatcher waves-effect" ng-class="{ 'bet-selection': ctrl.isSelected(match._id, '2') }" ng-click="ctrl.saveBet(match._id, '2')">
-                        <div class="country">
-                            <p class="principal-main-color strong-shape center-align flow-text truncate">{{match.awayTeam.country}}</p>
-                        </div>
+                                    <div class="section center-align">
+                                        <span class="team-label-shape secondary-main-color">Capitaine: </span>
+                                        <span class="default-font-shape">{{match.homeTeam.captain}}</span>
+                                    </div>
+                                </div>
 
-                        <div class="logo valign-wrapper">
-                            <img ng-src="{{match.awayTeam.logo.url}}" class="circle responsive-img" alt="" />
+                                <div class="col s6">
+                                    <div class="section center-align">
+                                        <span class="team-label-shape secondary-main-color">Entraineur: </span>
+                                        <span class="default-font-shape">{{match.awayTeam.coach}}</span>
+                                    </div>
+
+                                    <div class="section center-align">
+                                        <span class="team-label-shape secondary-main-color">Capitaine: </span>
+                                        <span class="default-font-shape">{{match.awayTeam.captain}}</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
-        </li>
-
-        <li>
-            <div class="collapsible-header">
-                <div class="row no-bottom-margin">
-                    <div class="col s12">
-                        <p class="secondary-main-color center-align flow-text truncate">Détails</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="collapsible-body">
-                <div class="row">
-                    <div class="col s12 center-align">
-                        <h5 class="strong-shape secondary-main-color">{{match.stadium}}</h5>
-                        <h6 class="secondary-main-color">{{match.date | date: 'EEEE dd MMMM yyyy'}}</h6>
-                        <h6 class="secondary-main-color">{{match.date | date: 'H:mm'}}</h6>
-                    </div>
-
-                    <div class="col s6">
-                        <div class="section center-align">
-                            <span class="team-label-shape secondary-main-color">Entraineur: </span>
-                            <span class="default-font-shape">{{match.homeTeam.coach}}</span>
-                        </div>
-
-                        <div class="section center-align">
-                            <span class="team-label-shape secondary-main-color">Capitaine: </span>
-                            <span class="default-font-shape">{{match.homeTeam.captain}}</span>
-                        </div>
-                    </div>
-
-                    <div class="col s6">
-                        <div class="section center-align">
-                            <span class="team-label-shape secondary-main-color">Entraineur: </span>
-                            <span class="default-font-shape">{{match.awayTeam.coach}}</span>
-                        </div>
-
-                        <div class="section center-align">
-                            <span class="team-label-shape secondary-main-color">Capitaine: </span>
-                            <span class="default-font-shape">{{match.awayTeam.captain}}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
+        </div>
+    </li>
+</ul>

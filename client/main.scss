@@ -184,3 +184,12 @@ img-uploader {
 .country {
     width: 60%;
 }
+
+.add-padding {
+    padding: 1rem;
+}
+
+// HACK
+.collapsible-body p {
+    padding: .5rem;
+}
