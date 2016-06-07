@@ -1,0 +1,29 @@
+<form name="editionForm" ng-submit="ctrl.saveScore(editionForm.$valid)">
+    <div class="row">
+        <div class="input-field col s12 m6 offset-m3">
+            <input type="text" name="homeTeamScore" ng-model="ctrl.score.homeTeam" ng-required="true">
+            <label ng-if="!ctrl.score.homeTeam">Score équipe à domicile</label>
+            <label ng-if="ctrl.score.homeTeam" class="active">Score équipe à domicile</label>
+
+            <div ng-messages="editionForm.homeTeamScore.$error" ng-if="editionForm.homeTeamScore.$touched || editionForm.homeTeamScore.$dirty">
+                <div ng-message="required">Veuillez saisir un nom de stade.</div>
+            </div>
+        </div>
+
+        <div class="input-field col s12 m6 offset-m3">
+            <input type="text" name="awayTeamScore" ng-model="ctrl.score.awayTeam" ng-required="true">
+            <label ng-if="!ctrl.score.awayTeam">Score équipe à l'extérieur</label>
+            <label ng-if="ctrl.score.awayTeam" class="active">Score équipe à l'extérieur</label>
+
+            <div ng-messages="editionForm.awayTeamScore.$error" ng-if="editionForm.awayTeamScore.$touched || editionForm.awayTeamScore.$dirty">
+                <div ng-message="required">Veuillez saisir un nom de stade.</div>
+            </div>
+        </div>
+
+        <div class="col s12 m6 offset-m3 center-align">
+            <button class="btn waves-effect waves-light light-blue darken-1" type="submit" ng-disabled="!editionForm.$valid">
+                Sauvegarder<i class="material-icons right">save</i>
+            </button>
+        </div>
+    </div>
+</form>

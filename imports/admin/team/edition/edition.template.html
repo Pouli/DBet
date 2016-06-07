@@ -1,37 +1,34 @@
-<form name="creationForm">
+<form name="editionForm" ng-submit="ctrl.saveScore(editionForm.$valid)">
     <div class="row">
         <div class="input-field col s12 m6 offset-m3">
-            <input type="text" name="country" ng-model="ctrl.team.country" ng-change="ctrl.saveField('country')" ng-model-options="{updateOn: 'blur'}" ng-required="true">
-            <label ng-if="!ctrl.team.country">Pays</label>
-            <label ng-if="ctrl.team.country" class="active">Pays</label>
+            <select name="homeTeamScore" ng-model="ctrl.score.homeTeam" ng-required="true">
+                <option value="" disabled selected>Sélectionner l'équipe jouant à domicile</option>
+                <option ng-repeat="team in ctrl.teams" value="{{team._id}}">{{team.country}}</option>
+            </select>
+            <label>Equipe à domicile</label>
 
-            <div ng-messages="creationForm.email.$error" ng-if="creationForm.email.$touched || creationForm.email.$dirty">
-                <div ng-message="required" class="warn-main-color">Veuillez entrer le pays de votre équipe</div>
+            <div ng-messages="creationForm.homeTeam.$error" ng-if="creationForm.homeTeam.$touched || creationForm.homeTeam.$dirty">
+                <div ng-message="required">Champs requis</div>
             </div>
         </div>
 
         <div class="input-field col s12 m6 offset-m3">
-            <input type="text" name="coach" ng-model="ctrl.team.coach" ng-change="ctrl.saveField('coach')" ng-model-options="{updateOn: 'blur'}" ng-required="true">
-            <label ng-if="!ctrl.team.coach">Entraineur</label>
-            <label ng-if="ctrl.team.coach" class="active">Entraineur</label>
+            <select name="awayTeam" ng-model="ctrl.newMatch.awayTeam" ng-required="true">
+                <option value="" disabled selected>Sélectionner l'équipe jouant à l'extérieur</option>
+                <option ng-repeat="team in ctrl.teams" value="{{team._id}}">{{team.country}}</option>
+            </select>
+            <label>Equipe à l'extérieur</label>
 
-            <div ng-messages="creationForm.coach.$error" ng-if="creationForm.coach.$touched || creationForm.coach.$dirty">
-                <div ng-message="required" class="warn-main-color">Veuillez entrer le nom du coach de votre équipe</div>
+            <div ng-messages="creationForm.awayTeam.$error" ng-if="creationForm.awayTeam.$touched || creationForm.awayTeam.$dirty">
+                <div ng-message="required">Champs requis</div>
             </div>
         </div>
 
-        <div class="input-field col s12 m6 offset-m3">
-            <input type="text" name="captain" ng-model="ctrl.team.captain" ng-change="ctrl.saveField('captain')" ng-model-options="{updateOn: 'blur'}" ng-required="true">
-            <label ng-if="!ctrl.team.captain">Capitaine</label>
-            <label ng-if="ctrl.team.captain" class="active">Capitaine</label>
-
-            <div ng-messages="creationForm.captain.$error" ng-if="creationForm.captain.$touched || creationForm.captain.$dirty">
-                <div ng-message="required" class="warn-main-color">Veuillez entrer le nom du capitaine de votre équipe</div>
-            </div>
-        </div>
-
-        <div class="col s12 m6 offset-m3">
-            <img-uploader type="logo" image-info="ctrl.team.logo" change="ctrl.saveField('logo')"></img-uploader>
+        <div class="col s12 m6 offset-m3 center-align">
+            <button class="btn waves-effect waves-light light-blue darken-1" type="submit" ng-disabled="!creationForm.$valid">
+                Sauvegarder<i class="material-icons right">save</i>
+            </button>
         </div>
     </div>
 </form>
+

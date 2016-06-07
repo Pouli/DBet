@@ -2,9 +2,8 @@
     <div class="row-wrap">
         <div class="cols mm8 ss12">
             <div class="row valign-wrapper no-bottom-margin">
-                <a class="col s4 modal-trigger waves-effect" href="#modal1">
+                <a class="col s4 modal-trigger waves-effect" href="#modalProfilePicture">
                     <img ng-src="{{ctrl.userData[0].profile.picture.url}}" alt="" class="circle responsive-img">
-                    <!--src="images/test-user.jpg"-->
                 </a>
                 <div class="col s8 valign">
                     <ul>
@@ -24,7 +23,7 @@
     </div>
 </div>
 
-<div id="modal1" class="modal modal-fixed-footer">
+<div id="modalProfilePicture" class="modal modal-fixed-footer">
     <div class="modal-content">
         <h4>Modifier votre photo de profil</h4>
         <img-uploader type="profil" image-info="ctrl.userData[0].profile.picture"></img-uploader>

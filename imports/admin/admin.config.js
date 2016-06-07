@@ -14,22 +14,6 @@ class AdminConfig {
                     }
                 }
             })
-            .state('admin.match', {
-                url: '/match',
-                views: {
-                    'content@': {
-                        template: '<admin-match></admin-match>'
-                    }
-                }
-            })
-            .state('admin.match.creation', {
-                url: '/match',
-                views: {
-                    'content@': {
-                        template: '<admin-match-creation></admin-match-creation>'
-                    }
-                }
-            })
             .state('admin.team', {
                 url: '/team',
                 views: {
@@ -51,6 +35,30 @@ class AdminConfig {
                 views: {
                     'content@': {
                         template: '<admin-team-edition></admin-team-edition>'
+                    }
+                }
+            })
+            .state('admin.match', {
+                url: '/match',
+                views: {
+                    'content@': {
+                        template: '<admin-match></admin-match>'
+                    }
+                }
+            })
+            .state('admin.match.creation', {
+                url: '/match',
+                views: {
+                    'content@': {
+                        template: '<admin-match-creation></admin-match-creation>'
+                    }
+                }
+            })
+            .state('admin.match.edition', {
+                url: '/:id',
+                views: {
+                    'content@': {
+                        template: '<admin-match-edition></admin-match-edition>'
                     }
                 }
             });

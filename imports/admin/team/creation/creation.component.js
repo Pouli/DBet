@@ -31,7 +31,7 @@ class CreationController {
 }
 
 const CreationComponent = {
-    templateUrl: 'imports/admin/team/creation/creation.template.html',
+    templateUrl: 'imports/admin/team/creation/edition.template.html',
     controller: CreationController,
     controllerAs: 'ctrl'
 }

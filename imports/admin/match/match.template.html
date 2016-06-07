@@ -51,7 +51,7 @@
             </div>
 
             <div class="col s2 space-around-wrapper">
-                <i class="material-icons small secondary-main-color">edit</i>
+                <i ui-sref="admin.match.edition({ id: match._id })" class="material-icons small secondary-main-color">edit</i>
                 <i ng-click="ctrl.removeMatch(match._id)" class="material-icons small warn-main-color">delete</i>
             </div>
         </div>
