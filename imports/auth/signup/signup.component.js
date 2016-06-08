@@ -45,6 +45,6 @@ const SignupComponent = {
     templateUrl: 'imports/auth/signup/signup.template.html',
     controller: SignupController,
     controllerAs: 'ctrl'
-}
+};
 
 export default SignupComponent;

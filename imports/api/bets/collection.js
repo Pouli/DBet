@@ -17,5 +17,8 @@ Bets.allow({
 Meteor.methods({
     saveBet (matchId, value) {
         return Bets.upsert({ userId: Meteor.userId(), matchId: matchId }, { userId: Meteor.userId(), matchId: matchId, value : value });
+    },
+    getBets(matchId) {
+        return Bets.find({ matchId : matchId });
     }
 });

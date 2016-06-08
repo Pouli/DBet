@@ -10,8 +10,6 @@ class EditionController {
         this.matchId = $stateParams.id;
         this.MessageService = MessageService;
 
-        console.log(this.matchId);
-
         this.score = { homeTeam : '', awayTeam : '' };
 
         this.subscribe('matchs');
@@ -22,15 +20,17 @@ class EditionController {
             }
         });
     }
-
-    saveScore(isValid) {
+    
+    updateMatch(isValid) {
         if(!isValid) return;
-
-        Match.update({_id: this.matchId}, {$set : this.score }, (err) => {
+        
+        Meteor.call('saveScore', this.matchId, this.score, (err, res) => {
             if(err) return this.MessageService.showMessage(err.message);
+            if(!res) return this.MessageService.showMessage('Ce match n\'a pas encore été joué');
 
-            this.$state.go('admin.match');
-        })
+            Meteor.call('updateUsersScore', this.matchId, this.score);
+            return this.$state.go('admin.match');
+        });
     }
 }
 
