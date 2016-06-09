@@ -3,11 +3,9 @@ class AvatarController {
     constructor($scope, $reactive, $timeout) {
         $reactive(this).attach($scope);
 
-        this.subscribe('userData');
-
         this.helpers({
-            userData() {
-                return Meteor.users.find();
+            currentUser() {
+                return Meteor.user();
             }
         });
 
@@ -15,7 +13,7 @@ class AvatarController {
     }
 
     updateProfilePicture() {
-        Meteor.call('updateProfilePicture', this.userData[0].profile.picture);
+        Meteor.call('updateProfilePicture', this.currentUser.profile.picture);
     }
 }
 

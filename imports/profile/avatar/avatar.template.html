@@ -1,21 +1,20 @@
-{{ ctrl.userData }}
 <div class="section">
     <div class="row-wrap">
         <div class="cols mm8 ss12">
             <div class="row valign-wrapper no-bottom-margin">
                 <a class="col s4 modal-trigger center-align" href="#modalProfilePicture">
-                    <img ng-if="!ctrl.userData[0].profile.picture.url" ng-src="{{ ctrl.userData[0].profile.picture.defaultUrl }}" class="circle responsive-img waves-effect hover-shadow-effect">
-                    <img ng-if="ctrl.userData[0].profile.picture.url" ng-src="{{ ctrl.userData[0].profile.picture.url }}" class="circle responsive-img waves-effect hover-shadow-effect">
+                    <img ng-if="!ctrl.currentUser.profile.picture.url" ng-src="{{ ctrl.currentUser.profile.picture.defaultUrl }}" class="circle responsive-img waves-effect hover-shadow-effect">
+                    <img ng-if="ctrl.currentUser.profile.picture.url" ng-src="{{ ctrl.currentUser.profile.picture.url }}" class="circle responsive-img waves-effect hover-shadow-effect">
                 </a>
                 <div class="col s8 valign">
                     <div class="section">
                         <span class="team-label-shape secondary-main-color">Email: </span>
-                        <span class="default-font-shape">{{ ctrl.userData[0].emails[0].address }}</span>
+                        <span class="default-font-shape">{{ ctrl.currentUser.emails[0].address }}</span>
                     </div>
 
                     <div class="section">
                         <span class="team-label-shape secondary-main-color">Service: </span>
-                        <span class="default-font-shape">{{ ctrl.userData[0].profile.department }}</span>
+                        <span class="default-font-shape">{{ ctrl.currentUser.profile.department }}</span>
                     </div>
                 </div>
             </div>
@@ -33,7 +32,7 @@
 <div id="modalProfilePicture" class="modal modal-fixed-footer">
     <div class="modal-content">
         <h4>Modifier votre photo de profil</h4>
-        <img-uploader type="profil" image-info="ctrl.userData[0].profile.picture"></img-uploader>
+        <img-uploader type="profil" image-info="ctrl.currentUser.profile.picture"></img-uploader>
     </div>
     <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="ctrl.updateProfilePicture()">Sauvegader</a>
