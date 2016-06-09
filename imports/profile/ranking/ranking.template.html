@@ -1,3 +1,26 @@
-<div class="section">
-    {{ ctrl.users }}
+<div class="container add-padding">
+    <table class="bordered">
+        <tr class="row no-bottom-margin">
+            <th class="col s2 center-align truncate">Rang</th>
+            <th class="col s5 truncate">Nom</th>
+            <th class="col s3 truncate">Service</th>
+            <th class="col s2 center-align truncate">Score</th>
+        </tr>
+    </table>
+    <div class="scroll">
+        <table class="bordered">
+            <tr ng-repeat="user in ctrl.users" class="row no-margin valign-wrapper">
+                <td class="col s2 center-align truncate">{{ $index + 1 }}</td>
+                <td class="col s5">
+                    <div class="flex align-center table-line">
+                        <img ng-if="!user.profile.picture.url" ng-src="{{ user.profile.picture.defaultUrl }}" class="circle responsive-img profile-fit">
+                        <img ng-if="user.profile.picture.url" ng-src="{{ user.profile.picture.url }}" class="circle responsive-img profile-fit">
+                        <span class="add-padding truncate">{{ user | displayNameFilter }}</span>
+                    </div>
+                </td>
+                <td class="col s3 truncate">{{ user.profile.department| convertDepartmentId }}</td>
+                <td class="col s2 center-align truncate">{{ user.profile.score[user.profile.score.length -1].value }}</td>
+            </tr>
+        </table>
+    </div>
 </div>

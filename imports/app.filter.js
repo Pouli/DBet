@@ -10,6 +10,14 @@ export const displayNameFilter = () => {
     }
 };
 
+export const convertDepartmentId = (DEPARTMENTS) => {
+    return (input) => {
+        return DEPARTMENTS
+            .filter(elem => elem.id === input)
+            .map(elem => elem.label)[0];
+    };
+};
+
 export const convertGroupId = (GROUPS) => {
     return (input) => {
         return GROUPS

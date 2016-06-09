@@ -7,7 +7,7 @@ class RankingController {
 
         this.helpers({
             users() {
-                return Meteor.users.find();
+                return Meteor.users.find({}, { sort: { 'profile.score.0.value' : -1 }});
             }
         });
     }

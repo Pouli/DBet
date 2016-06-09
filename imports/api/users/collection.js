@@ -10,7 +10,7 @@ Meteor.methods({
                     const currentUser = Meteor.users.find({ _id : bet.userId }).fetch();
                     const currentScore = currentUser[0].profile.score.pop();
 
-                    Meteor.users.update({ _id : bet.userId }, { $push : { 'profile.score' : { date: new Date(), value: currentScore.value + 1 }}});
+                    Meteor.users.update({ _id : bet.userId }, { $push : { $each: [{ date: new Date(), value: currentScore.value + 1 }], $position: 0 }});
                 }
             })
         });

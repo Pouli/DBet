@@ -17,6 +17,7 @@ import { DEPARTMENTS } from '../imports/app.constant';
 import { GROUPS } from '../imports/app.constant';
 
 import { displayNameFilter } from '../imports/app.filter';
+import { convertDepartmentId } from '../imports/app.filter';
 import { convertGroupId } from '../imports/app.filter';
 
 import AuthService from '../imports/_shared/auth.service';
@@ -40,6 +41,7 @@ app.constant('DEPARTMENTS', DEPARTMENTS);
 app.constant('GROUPS', GROUPS);
 
 app.filter('displayNameFilter', displayNameFilter);
+app.filter('convertDepartmentId', convertDepartmentId);
 app.filter('convertGroupId', convertGroupId);
 
 app.service('AuthService', AuthService);

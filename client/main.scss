@@ -76,6 +76,10 @@ $default-font-color: #424242;
     justify-content: space-around;
 }
 
+.justify-space-between {
+    justify-content: space-between;
+}
+
 .align-center {
     align-items: center;
 }
@@ -209,3 +213,22 @@ img-uploader {
 .hover-shadow-effect:hover {
     box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
 }
+
+// TABLE
+.scroll {
+    max-height: 500px;
+    overflow: auto;
+}
+
+.tr {
+    width: 100%;
+}
+
+.table-line {
+    height: 5rem
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
