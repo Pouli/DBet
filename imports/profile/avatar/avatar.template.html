@@ -7,10 +7,15 @@
                     <img ng-if="ctrl.userData[0].profile.picture.url" ng-src="{{ ctrl.userData[0].profile.picture.url }}" class="circle responsive-img waves-effect hover-shadow-effect">
                 </a>
                 <div class="col s8 valign">
-                    <ul>
-                        <li>{{ ctrl.userData[0].emails[0].address }}</li>
-                        <li>{{ ctrl.userData[0].profile.department }}</li>
-                    </ul>
+                    <div class="section">
+                        <span class="team-label-shape secondary-main-color">Email: </span>
+                        <span class="default-font-shape">{{ ctrl.userData[0].emails[0].address }}</span>
+                    </div>
+
+                    <div class="section">
+                        <span class="team-label-shape secondary-main-color">Service: </span>
+                        <span class="default-font-shape">{{ ctrl.userData[0].profile.department }}</span>
+                    </div>
                 </div>
             </div>
         </div>
