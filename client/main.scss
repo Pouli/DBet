@@ -55,9 +55,17 @@ $default-font-color: #424242;
     color: $warn-main-color;
 }
 
+.white-main-color {
+    color: $white-color;
+}
+
 // Flexbox util
 .flex {
     display: flex;
+}
+
+.flex-important {
+    display: flex !important;
 }
 
 .justify-center {
@@ -97,6 +105,10 @@ $default-font-color: #424242;
 
 .logo-fit {
     max-height: 90%;
+}
+
+.profile-fit {
+    max-height: 60%;
 }
 
 // Profile -> Avatar

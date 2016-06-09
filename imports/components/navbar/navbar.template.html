@@ -9,8 +9,14 @@
         </a>
         <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
 
-        <ul ng-if="ctrl.isLoggedIn" class="left hide-on-med-and-down">
-            <li>{{ ctrl.currentUser | displayNameFilter }}</li>
+        <ul ng-if="ctrl.isLoggedIn" class="left hide-on-med-and-down full-height">
+            <li class="full-height">
+                <div class="flex align-center full-height">
+                    <img ng-if="!ctrl.currentUser.profile.picture.url" ng-src="{{ ctrl.currentUser.profile.picture.defaultUrl }}" class="circle responsive-img profile-fit">
+                    <img ng-if="ctrl.currentUser.profile.picture.url" ng-src="{{ ctrl.currentUser.profile.picture.url }}" class="circle responsive-img profile-fit">
+                    <span class="add-padding">{{ ctrl.currentUser | displayNameFilter }}</span>
+                </div>
+            </li>
         </ul>
 
         <ul ng-if="ctrl.isLoggedIn" class="right hide-on-med-and-down">
@@ -23,8 +29,11 @@
 
         <ul class="side-nav" id="mobile-menu">
             <li class="secondary-main-color-back row" ng-click="ctrl.close()">
-                <i class="col material-icons">account_circle</i>
-                <span class="col">{{ ctrl.currentUser | displayNameFilter }}</span>
+                <a class="flex-important align-center full-height">
+                    <img ng-if="!ctrl.currentUser.profile.picture.url" ng-src="{{ ctrl.currentUser.profile.picture.defaultUrl }}" class="circle responsive-img profile-fit">
+                    <img ng-if="ctrl.currentUser.profile.picture.url" ng-src="{{ ctrl.currentUser.profile.picture.url }}" class="circle responsive-img profile-fit">
+                    <span class="add-padding white-main-color">{{ ctrl.currentUser | displayNameFilter }}</span>
+                </a>
             </li>
             <li><a ui-sref="match">Liste des matchs</a></li>
             <li><a ui-sref="profile">Profil</a></li>
