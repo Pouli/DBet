@@ -72,6 +72,10 @@ $default-font-color: #424242;
     justify-content: center;
 }
 
+.justify-end {
+    justify-content: flex-end;
+}
+
 .justify-space-around {
     justify-content: space-around;
 }
@@ -87,7 +91,6 @@ $default-font-color: #424242;
 .direction-column {
     flex-direction: column;
 }
-
 
 
 // Navbar settings
@@ -127,11 +130,11 @@ $default-font-color: #424242;
             width: 100%;
         }
         @media only screen and (min-width: 601px) {
-            &.mm8 {
-                width: 66.6666666667%;
+            &.mm6 {
+                width: 50%;
             }
-            &.mm4 {
-                width: 33.3333333333%;
+            &.mm6 {
+                width: 50%;
             }
         }
     }
@@ -148,7 +151,7 @@ $default-font-color: #424242;
 .rank-display {
     font-size: 4rem;
     font-weight: bold;
-    color: $secondary-main-color;
+    color: $principal-main-color;
 }
 
 .total-display {

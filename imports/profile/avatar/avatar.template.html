@@ -1,6 +1,6 @@
 <div class="section">
     <div class="row-wrap">
-        <div class="cols mm8 ss12">
+        <div class="cols mm6 ss12">
             <div class="row valign-wrapper no-bottom-margin">
                 <a class="col s4 modal-trigger center-align" href="#modalProfilePicture">
                     <img ng-if="!ctrl.currentUser.profile.picture.url" ng-src="{{ ctrl.currentUser.profile.picture.defaultUrl }}" class="circle responsive-img waves-effect hover-shadow-effect">
@@ -19,11 +19,19 @@
                 </div>
             </div>
         </div>
-        <div class="cols mm4 ss12">
-            <div class="valign-wrapper center-align">
-                <i class="material-icons medium valign third-main-color">trending_up</i>
-                <i class="material-icons medium valign warn-main-color">trending_down</i>
-                <span class="rank-display valign">{{ ctrl.getRank() }}<span class="total-display">/100</span></span>
+        <div class="cols mm6 ss12">
+            <div class="flex align-center justify-end">
+                <span class="team-label-shape secondary-main-color">{{'Vous êtes    '}}
+                    <span class="rank-display">{{ '&nbsp;' + ctrl.getRank() }}
+                        <span class="total-display">{{ '/' + ctrl.users.length }}</span>
+                    </span>
+                </span>
+
+                <span class="team-label-shape secondary-main-color"> {{'&nbsp;&nbsp;avec un total de '}}
+                    <span class="rank-display">{{ '&nbsp;' + ctrl.currentUser.profile.score[0].value }}
+                        <span class="total-display">pts</span>
+                    </span>
+                </span>
             </div>
         </div>
     </div>
