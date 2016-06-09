@@ -17,10 +17,6 @@ class AvatarController {
     updateProfilePicture() {
         Meteor.call('updateProfilePicture', this.userData[0].profile.picture);
     }
-
-    randomInt() {
-        return Math.floor(Math.random() * 6) + 1;
-    }
 }
 
 const AvatarComponent = {

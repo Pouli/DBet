@@ -1,5 +1,7 @@
 Meteor.users.before.insert((userId, user) => {
-    user.profile.picture = {};
+    const defaultUrl = `/images/profile-${ Math.floor(Math.random() * 6) + 1 }.jpg`;
+
+    user.profile.picture = { defaultUrl : defaultUrl };
     user.profile.score = [{ date : new Date(), value: 0 }];
 });
 
