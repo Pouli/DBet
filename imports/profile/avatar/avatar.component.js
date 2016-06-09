@@ -6,6 +6,9 @@ class AvatarController {
         this.helpers({
             currentUser() {
                 return Meteor.user();
+            },
+            users() {
+                return Meteor.users.find({}, { sort: { 'profile.score.0.value' : -1 }});
             }
         });
 
@@ -14,6 +17,12 @@ class AvatarController {
 
     updateProfilePicture() {
         Meteor.call('updateProfilePicture', this.currentUser.profile.picture);
+    }
+
+    getRank() {
+        if(!this.currentUser) return;
+
+        return this.users.map(item => item._id).indexOf(this.currentUser._id) + 1;
     }
 }
 
