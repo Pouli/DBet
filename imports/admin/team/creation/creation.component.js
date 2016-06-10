@@ -5,7 +5,7 @@ import { Teams } from '../../../api/teams';
 class CreationController {
     constructor($scope, $reactive, $state, MessageService) {
         'ngInject';
-        
+
         $reactive(this).attach($scope);
         this.$state = $state;
         this.MessageService = MessageService;
@@ -32,7 +32,7 @@ class CreationController {
 }
 
 const CreationComponent = {
-    templateUrl: 'imports/admin/team/creation/edition.template.html',
+    templateUrl: 'imports/admin/team/creation/creation.template.html',
     controller: CreationController,
     controllerAs: 'ctrl'
 }
