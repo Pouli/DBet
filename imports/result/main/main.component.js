@@ -38,8 +38,15 @@ class MainController {
         return bet[0].value === value;
     }
 
+    isBetGood(matchId, value) {
+        const match = this.matchs.filter((item) => item._id === matchId);
+
+        return defineWinnerOrDraw(match[0].score) === value;
+    }
+
     getDistinctGroups() {
         let filter = this.matchs.filter((item) => !!item.group);
+        
         return _.chain(filter).uniq('group').pluck('group').value();
     }
 }
@@ -52,3 +59,15 @@ const mainComponent = {
 
 export default mainComponent;
 
+function defineWinnerOrDraw(score) {
+    const difference = score.homeTeam - score.awayTeam;
+    if( difference > 0) {
+        return '1';
+    }
+    else if (difference === 0) {
+        return 'N';
+    }
+    else {
+        return '2';
+    }
+}

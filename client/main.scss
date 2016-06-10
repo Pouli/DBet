@@ -19,6 +19,14 @@ $default-font-color: #424242;
     background-color: $principal-light-color;
 }
 
+.bet-selection-true {
+    background-color: $third-light-color;
+}
+
+.bet-selection-false {
+    background-color: $warn-light-color;
+}
+
 .strong-shape {
     font-weight: bold;
 }

@@ -15,7 +15,7 @@
                             </div>
 
                             <div class="row valign-wrapper">
-                                <a class="col s5 row-dispatcher" ng-class="{ 'bet-selection': ctrl.isSelected(match._id, '1') }">
+                                <a class="col s5 row-dispatcher" ng-class="ctrl.isSelected(match._id, '1') ? (ctrl.isBetGood(match._id, '1') ? 'bet-selection-true' : 'bet-selection-false') : '' ">
                                     <div class="logo valign-wrapper">
                                         <img ng-src="{{ match.homeTeam.logo.url }}" class="circle responsive-img" alt="" />
                                     </div>
@@ -25,11 +25,11 @@
                                     </div>
                                 </a>
 
-                                <a class="col s2 center-align" ng-class="{ 'bet-selection': ctrl.isSelected(match._id, 'N') }">
+                                <a class="col s2 center-align" ng-class="ctrl.isSelected(match._id, 'N') ? (ctrl.isBetGood(match._id, 'N') ? 'bet-selection-true' : 'bet-selection-false') : '' ">
                                     <p class="strong-shape secondary-main-color flow-text truncate">Nul</p>
                                 </a>
 
-                                <a class="col s5 row-dispatcher" ng-class="{ 'bet-selection': ctrl.isSelected(match._id, '2') }">
+                                <a class="col s5 row-dispatcher" ng-class="ctrl.isSelected(match._id, '2') ? (ctrl.isBetGood(match._id, '2') ? 'bet-selection-true' : 'bet-selection-false') : '' ">
                                     <div class="country">
                                         <p class="principal-main-color strong-shape center-align flow-text truncate">{{match.awayTeam.country}}</p>
                                     </div>
