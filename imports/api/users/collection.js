@@ -11,7 +11,7 @@ Meteor.methods({
 
                 const newScore = defineWinnerOrDraw(score) === bet.value ? currentScore.value + 3 : currentScore.value - 1;
 
-                Meteor.users.update({ _id : bet.userId }, { $push : { $each: [{ date: new Date(), value: newScore }], $position: 0 }});
+                Meteor.users.update({ _id : bet.userId }, { $push : { 'profile.score' : { $each: [{ date: new Date(), value: newScore }], $position: 0 }}});
             })
         });
     }
