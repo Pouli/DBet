@@ -20,11 +20,11 @@
         </ul>
 
         <ul ng-if="ctrl.isLoggedIn" class="right hide-on-med-and-down">
-            <li><a ui-sref="bet">Paris</a></li>
-            <li><a ui-sref="result">Résultats</a></li>
-            <li><a ui-sref="profile">Profil</a></li>
-            <li ng-if="ctrl.isAdmin"><a ui-sref="admin.team">Admin equipe</a></li>
-            <li ng-if="ctrl.isAdmin"><a ui-sref="admin.match">Admin match</a></li>
+            <li ng-click="ctrl.activeMe($event)" class="active"><a ui-sref="bet">Paris</a></li>
+            <li ng-click="ctrl.activeMe($event)"><a ui-sref="result">Résultats</a></li>
+            <li ng-click="ctrl.activeMe($event)"><a ui-sref="profile">Profil</a></li>
+            <li ng-if="ctrl.isAdmin" ng-click="ctrl.activeMe($event)"><a ui-sref="admin.team">Admin equipe</a></li>
+            <li ng-if="ctrl.isAdmin" ng-click="ctrl.activeMe($event)"><a ui-sref="admin.match">Admin match</a></li>
             <li><a ng-click="ctrl.logout()"><i class="material-icons right">exit_to_app</i>Logout</a></li>
         </ul>
 
@@ -36,11 +36,11 @@
                     <span class="add-padding white-main-color">{{ ctrl.currentUser | displayNameFilter }}</span>
                 </a>
             </li>
-            <li><a ui-sref="bet">Paris</a></li>
-            <li><a ui-sref="result">Résultats</a></li>
-            <li><a ui-sref="profile">Profil</a></li>
-            <li ng-if="ctrl.isAdmin"><a ui-sref="admin.team">Admin equipe</a></li>
-            <li ng-if="ctrl.isAdmin"><a ui-sref="admin.match">Admin match</a></li>
+            <li ng-click="ctrl.activeMe($event)"><a ui-sref="bet">Paris</a></li>
+            <li ng-click="ctrl.activeMe($event)" ><a ui-sref="result">Résultats</a></li>
+            <li ng-click="ctrl.activeMe($event)" ><a ui-sref="profile">Profil</a></li>
+            <li ng-if="ctrl.isAdmin" ng-click="ctrl.activeMe($event)"><a ui-sref="admin.team">Admin equipe</a></li>
+            <li ng-if="ctrl.isAdmin" ng-click="ctrl.activeMe($event)"><a ui-sref="admin.match">Admin match</a></li>
             <li><a ng-click="ctrl.logout()"><i class="material-icons right">exit_to_app</i>Logout</a></li>
         </ul>
     </div>

@@ -25,6 +25,11 @@ class NavbarController {
         initSideNav($timeout);
     }
 
+    activeMe($event) {
+        $('li.active').removeClass('active');
+        $($event.currentTarget).attr('class', 'active');
+    }
+
     logout() {
         Accounts.logout((err) => {
             if(err) console.log(err);
