@@ -6,12 +6,12 @@ Meteor.methods({
     updateUsersScore(matchId, score) {
         Meteor.call('getBets', matchId, (err, res) => {
             res.forEach((bet) => {
-                if(defineWinnerOrDraw(score) === bet.value) {
-                    const currentUser = Meteor.users.find({ _id : bet.userId }).fetch();
-                    const currentScore = currentUser[0].profile.score.pop();
+                const currentUser = Meteor.users.find({ _id : bet.userId }).fetch();
+                const currentScore = currentUser[0].profile.score.pop();
 
-                    Meteor.users.update({ _id : bet.userId }, { $push : { $each: [{ date: new Date(), value: currentScore.value + 1 }], $position: 0 }});
-                }
+                const newScore = defineWinnerOrDraw(score) === bet.value ? currentScore.value + 3 : currentScore.value - 1;
+
+                Meteor.users.update({ _id : bet.userId }, { $push : { $each: [{ date: new Date(), value: newScore }], $position: 0 }});
             })
         });
     }
