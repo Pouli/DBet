@@ -1,6 +1,7 @@
 class MessageService {
-    /*@ngInject*/
     constructor($rootScope) {
+        'ngInject';
+
         this.$rootScope = $rootScope;
     }
 

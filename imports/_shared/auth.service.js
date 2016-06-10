@@ -1,6 +1,7 @@
 class AuthService {
-    /*@ngInject*/
     constructor($q) {
+        'ngInject';
+        
         this.$q = $q;
     }
 
