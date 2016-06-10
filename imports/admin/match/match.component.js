@@ -20,7 +20,9 @@ class MatchController {
             }
         });
     }
-    
+    hasBeenPlayed(match) {
+        return match.date < new Date();
+    }
     removeMatch(id) {
         Matchs.remove(id, (err) => {
             if(err) return this.MessageService.showMessage(err.message);

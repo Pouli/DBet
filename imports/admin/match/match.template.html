@@ -34,7 +34,7 @@
                         </a>
 
                         <a class="col s2 center-align waves-effect" ng-class="{ 'bet-selection': ctrl.isSelected(match._id, 'N') }" ng-click="ctrl.saveBet(match._id, 'N')">
-                            <p class="strong-shape secondary-main-color flow-text truncate">-</p>
+                            <p class="strong-shape secondary-main-color flow-text truncate">{{ match.score.homeTeam }} - {{ match.score.awayTeam }}</p>
                         </a>
 
                         <div class="col s5 row-dispatcher waves-effect" ng-class="{ 'bet-selection': ctrl.isSelected(match._id, '2') }" ng-click="ctrl.saveBet(match._id, '2')">
@@ -51,7 +51,7 @@
             </div>
 
             <div class="col s2 space-around-wrapper">
-                <i ui-sref="admin.match.edition({ id: match._id })" class="material-icons small secondary-main-color">edit</i>
+                <i ng-if="ctrl.hasBeenPlayed(match)" ui-sref="admin.match.edition({ id: match._id })" class="material-icons small secondary-main-color">edit</i>
                 <i ng-click="ctrl.removeMatch(match._id)" class="material-icons small warn-main-color">delete</i>
             </div>
         </div>
