@@ -30,7 +30,7 @@ class SignupController {
                 if (err) {
                     this.MessageService.showMessage(err.message);
                 } else {
-                    this.$state.go('match');
+                    this.$state.go('bet');
                 }
             })
         );
