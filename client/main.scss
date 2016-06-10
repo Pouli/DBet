@@ -35,6 +35,10 @@ $default-font-color: #424242;
     background-color: $principal-main-color;
 }
 
+.principal-main-color-back-important{
+    background-color: $principal-main-color !important;
+}
+
 .secondary-main-color-back {
     background-color: $secondary-main-color;
 }
@@ -69,10 +73,12 @@ $default-font-color: #424242;
 
 // Flexbox util
 .flex {
+    display: -ms-flexbox;
     display: flex;
 }
 
 .flex-important {
+    display: -ms-flexbox !important;
     display: flex !important;
 }
 
@@ -198,9 +204,9 @@ img-uploader {
 
 // Bet -> collapsible
 .row-dispatcher {
-    display: inline-flex;
+    display: flex;
     flex-wrap: nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -242,4 +248,3 @@ img-uploader {
 .no-margin {
     margin: 0 !important;
 }
-
