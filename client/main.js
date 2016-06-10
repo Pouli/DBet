@@ -10,6 +10,7 @@ import authModule from '../imports/auth/auth.module';
 import profileModule from '../imports/profile/profile.module';
 import adminModule from '../imports/admin/admin.module';
 import betModule from '../imports/bet/bet.module';
+import resultModule from '../imports/result/result.module';
 
 import appConfig from '../imports/app.config';
 
@@ -32,7 +33,7 @@ import appRun from '../imports/app.run';
 
 let app = angular.module('DBetApp', [
     angularMeteor, uiRouter, ngMessages, ngFileUpload, 'ngImgCrop', 
-    authModule.name, profileModule.name, adminModule.name, betModule.name
+    authModule.name, profileModule.name, adminModule.name, betModule.name, resultModule.name
 ]);
 
 app.config(appConfig);

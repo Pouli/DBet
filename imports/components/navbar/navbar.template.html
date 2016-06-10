@@ -20,7 +20,8 @@
         </ul>
 
         <ul ng-if="ctrl.isLoggedIn" class="right hide-on-med-and-down">
-            <li><a ui-sref="match">Liste des matchs</a></li>
+            <li><a ui-sref="bet">Paris</a></li>
+            <li><a ui-sref="result">Résultats</a></li>
             <li><a ui-sref="profile">Profil</a></li>
             <li ng-if="ctrl.isAdmin"><a ui-sref="admin.team">Admin equipe</a></li>
             <li ng-if="ctrl.isAdmin"><a ui-sref="admin.match">Admin match</a></li>
@@ -35,7 +36,8 @@
                     <span class="add-padding white-main-color">{{ ctrl.currentUser | displayNameFilter }}</span>
                 </a>
             </li>
-            <li><a ui-sref="match">Liste des matchs</a></li>
+            <li><a ui-sref="bet">Paris</a></li>
+            <li><a ui-sref="result">Résultats</a></li>
             <li><a ui-sref="profile">Profil</a></li>
             <li ng-if="ctrl.isAdmin"><a ui-sref="admin.team">Admin equipe</a></li>
             <li ng-if="ctrl.isAdmin"><a ui-sref="admin.match">Admin match</a></li>

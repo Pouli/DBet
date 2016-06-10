@@ -1,10 +1,10 @@
-import matchConfig from './bet.config';
+import betConfig from './bet.config';
 
 import mainComponent from './main/main.component';
 
 let betModule = angular.module('Bet', []);
 
-betModule.config(matchConfig);
+betModule.config(betConfig);
 
 betModule.component('betMain', mainComponent);
 

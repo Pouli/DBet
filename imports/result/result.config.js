@@ -1,12 +1,12 @@
-class BetConfig {
+class ResultConfig {
     static initRoute ($stateProvider, $urlRouterProvider) {
         'ngInject';
         $stateProvider
-            .state('bet', {
-                url: '/bet',
+            .state('result', {
+                url: '/result',
                 views: {
                     'content@': {
-                        template: '<bet-main></bet-main>'
+                        template: '<result-main></result-main>'
                     }
                 },
                 resolve: {
@@ -22,4 +22,4 @@ class BetConfig {
     }
 }
 
-export default BetConfig.initRoute;
+export default ResultConfig.initRoute;

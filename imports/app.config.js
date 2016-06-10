@@ -3,7 +3,7 @@ class AppConfig {
         'ngInject';
 
         $locationProvider.html5Mode(true);
-        $urlRouterProvider.otherwise('/match');
+        $urlRouterProvider.otherwise('/bet');
     }
 }
 
