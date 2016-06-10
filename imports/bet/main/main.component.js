@@ -31,9 +31,8 @@ class MainController {
     }
 
     saveBet(matchId, value) {
-        Meteor.call('saveBet', matchId, value, (err, res) => {
+        Meteor.call('saveBet', matchId, value, (err) => {
             if(err) return this.MessageService.showMessageQuick(err.message);
-            if(!res) return this.MessageService.showMessageQuick('Il est trop tard pour parier sur ce match');
 
             return this.MessageService.showMessageQuick('Saved');
         });
