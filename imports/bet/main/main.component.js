@@ -5,7 +5,7 @@ import { Bets } from '../../api/bets';
 
 class MainController {
     /*@ngInject*/
-    constructor($scope, $reactive, MessageService) {
+    constructor($scope, $reactive, MessageService, $timeout) {
         $reactive(this).attach($scope);
 
         this.MessageService = MessageService;
@@ -26,6 +26,8 @@ class MainController {
                 return Bets.find();
             }
         });
+
+        $timeout(() => $('.collapsible').collapsible());
     }
 
     saveBet(matchId, value) {
