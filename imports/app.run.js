@@ -6,7 +6,7 @@ export default function($rootScope, $state) {
             return $state.go('login');
         }
         if(error === 'NOT_AUTHORIZED') {
-            if(fromState.abstract) return $state.go('match');
+            if(fromState.abstract) return $state.go('bet');
             
             return $state.go(fromState);
         }

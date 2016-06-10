@@ -2,8 +2,8 @@
     <div class="row">
         <div class="input-field col s12 m6 offset-m3">
             <input type="text" name="homeTeamScore" ng-model="ctrl.score.homeTeam" ng-required="true">
-            <label ng-if="!ctrl.score.homeTeam">Score équipe à domicile</label>
-            <label ng-if="ctrl.score.homeTeam" class="active">Score équipe à domicile</label>
+            <label ng-if="!ctrl.score.homeTeam">Score {{ ctrl.match.homeTeam.country }}</label>
+            <label ng-if="ctrl.score.homeTeam" class="active">Score {{ ctrl.match.homeTeam.country }}</label>
 
             <div ng-messages="editionForm.homeTeamScore.$error" ng-if="editionForm.homeTeamScore.$touched || editionForm.homeTeamScore.$dirty">
                 <div ng-message="required">Veuillez saisir un nom de stade.</div>
@@ -12,8 +12,8 @@
 
         <div class="input-field col s12 m6 offset-m3">
             <input type="text" name="awayTeamScore" ng-model="ctrl.score.awayTeam" ng-required="true">
-            <label ng-if="!ctrl.score.awayTeam">Score équipe à l'extérieur</label>
-            <label ng-if="ctrl.score.awayTeam" class="active">Score équipe à l'extérieur</label>
+            <label ng-if="!ctrl.score.awayTeam">Score {{ ctrl.match.awayTeam.country }}</label>
+            <label ng-if="ctrl.score.awayTeam" class="active">Score {{ ctrl.match.awayTeam.country }}</label>
 
             <div ng-messages="editionForm.awayTeamScore.$error" ng-if="editionForm.awayTeamScore.$touched || editionForm.awayTeamScore.$dirty">
                 <div ng-message="required">Veuillez saisir un nom de stade.</div>
