@@ -14,7 +14,7 @@
                                 </div>
                             </div>
 
-                            <div class="row no-bottom-margin valign-wrapper">
+                            <div class="row valign-wrapper">
                                 <a class="col s5 row-dispatcher" ng-class="{ 'bet-selection': ctrl.isSelected(match._id, '1') }">
                                     <div class="logo valign-wrapper">
                                         <img ng-src="{{ match.homeTeam.logo.url }}" class="circle responsive-img" alt="" />
@@ -26,7 +26,7 @@
                                 </a>
 
                                 <a class="col s2 center-align" ng-class="{ 'bet-selection': ctrl.isSelected(match._id, 'N') }">
-                                    <p class="strong-shape secondary-main-color flow-text truncate">{{ match.score.homeTeam }} - {{ match.score.awayTeam }}</p>
+                                    <p class="strong-shape secondary-main-color flow-text truncate">Nul</p>
                                 </a>
 
                                 <a class="col s5 row-dispatcher" ng-class="{ 'bet-selection': ctrl.isSelected(match._id, '2') }">
@@ -38,6 +38,15 @@
                                         <img ng-src="{{ match.awayTeam.logo.url }}" class="circle responsive-img" alt="" />
                                     </div>
                                 </a>
+                            </div>
+
+                            <div class="divider"></div>
+
+                            <div class="row no-bottom-margin">
+                                <div class="col s12 center-align">
+                                    <h6 class="principal-main-color">Score final</h6>
+                                    <p class="strong-shape third-main-color flow-text truncate">{{ match.score.homeTeam }} - {{ match.score.awayTeam }}</p>
+                                </div>
                             </div>
                         </div>
                     </li>
