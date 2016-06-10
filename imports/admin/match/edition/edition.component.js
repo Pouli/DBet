@@ -3,8 +3,9 @@ import './edition.template.html';
 import { Matchs } from '../../../api/matchs';
 
 class EditionController {
-    /*@ngInject*/
     constructor($scope, $reactive, $state, $stateParams, MessageService) {
+        'ngInject';
+        
         $reactive(this).attach($scope);
         this.$state = $state;
         this.matchId = $stateParams.id;

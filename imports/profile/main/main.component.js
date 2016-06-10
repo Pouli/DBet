@@ -1,6 +1,7 @@
 class MainController {
-    /*@ngInject*/
     constructor($timeout) {
+        'ngInject';
+        
         initCollapsible($timeout);
     }
 }

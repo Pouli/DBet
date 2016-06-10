@@ -3,8 +3,9 @@ import './edition.template.html';
 import { Teams } from '../../../api/teams';
 
 class EditionController {
-    /*@ngInject*/
     constructor($scope, $reactive, $stateParams, MessageService) {
+        'ngInject';
+        
         $reactive(this).attach($scope);
         this.MessageService = MessageService;
 

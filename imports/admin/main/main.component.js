@@ -1,8 +1,9 @@
 import './main.template.html';
 
 class mainController {
-    /*@ngInject*/
     constructor($timeout) {
+        'ngInject';
+        
         initTab($timeout)
     }
 }

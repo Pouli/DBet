@@ -4,8 +4,9 @@ import { Matchs } from '../../api/matchs';
 import { Bets } from '../../api/bets';
 
 class MainController {
-    /*@ngInject*/
     constructor($scope, $reactive, MessageService, $timeout) {
+        'ngInject';
+        
         $reactive(this).attach($scope);
 
         this.MessageService = MessageService;

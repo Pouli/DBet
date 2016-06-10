@@ -5,8 +5,9 @@ import { Images } from '../../api/images';
 import { upload } from '../../api/images';
 
 class ImgUploaderController {
-    /*@ngInject*/
     constructor($scope, $reactive) {
+        'ngInject';
+        
         $reactive(this).attach($scope);
 
         this.subscribe('image');

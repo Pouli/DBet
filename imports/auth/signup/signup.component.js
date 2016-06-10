@@ -3,8 +3,9 @@ import { Accounts } from 'meteor/accounts-base';
 import './signup.template.html';
 
 class SignupController {
-    /*@ngInject*/
     constructor($scope, $timeout, $reactive, $state, MessageService, DEPARTMENTS) {
+        'ngInject';
+        
         this.$state = $state;
         this.MessageService = MessageService;
         this.departments = DEPARTMENTS;

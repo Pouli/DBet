@@ -3,8 +3,9 @@ import { Meteor } from 'meteor/meteor';
 import './login.template.html';
 
 class LoginController {
-    /*@ngInject*/
     constructor($scope, $reactive, $state, MessageService) {
+        'ngInject';
+        
         this.$state = $state;
         this.MessageService = MessageService;
 

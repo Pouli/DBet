@@ -1,6 +1,7 @@
 class AvatarController {
-    /*@ngInject*/
     constructor($scope, $reactive, $timeout) {
+        'ngInject';
+        
         $reactive(this).attach($scope);
 
         this.helpers({

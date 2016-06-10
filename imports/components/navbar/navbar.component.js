@@ -4,8 +4,9 @@ import { Accounts } from 'meteor/accounts-base';
 import './navbar.template.html';
 
 class NavbarController {
-    /*@ngInject*/
     constructor($scope, $reactive, $state, $timeout) {
+        'ngInject';
+        
         this.$state = $state;
 
         $reactive(this).attach($scope);

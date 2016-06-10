@@ -4,8 +4,9 @@ import { Teams } from '../../api/teams';
 import { Images } from '../../api/images';
 
 class TeamController {
-    /*@ngInject*/
     constructor($scope, $reactive, MessageService) {
+        'ngInject';
+        
         $reactive(this).attach($scope);
         this.MessageService = MessageService;
 

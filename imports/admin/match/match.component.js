@@ -4,8 +4,9 @@ import { Matchs } from '../../api/matchs';
 import { Teams } from '../../api/teams';
 
 class MatchController {
-    /*@ngInject*/
     constructor($scope, $reactive) {
+        'ngInject';
+        
         $reactive(this).attach($scope);
 
         this.subscribe('matchs');

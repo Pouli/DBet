@@ -4,8 +4,9 @@ import { Teams } from '../../../api/teams';
 import { Matchs } from '../../../api/matchs';
 
 class CreationController {
-    /*@ngInject*/
     constructor($scope, $reactive, $timeout, $state, GROUPS, MessageService) {
+        'ngInject';
+        
         $reactive(this).attach($scope);
 
         this.$state = $state;
