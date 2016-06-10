@@ -20,7 +20,7 @@ class MainController {
 
         this.helpers({
             matchs() {
-                return Matchs.find();
+                return Matchs.find({'date' : { $gte : new Date()}});
             },
             bets() {
                 return Bets.find();
@@ -29,8 +29,9 @@ class MainController {
     }
 
     saveBet(matchId, value) {
-        Meteor.call('saveBet', matchId, value, (err) => {
+        Meteor.call('saveBet', matchId, value, (err, res) => {
             if(err) return this.MessageService.showMessageQuick(err.message);
+            if(!res) return this.MessageService.showMessageQuick('Il est trop tard pour parier sur ce match');
 
             return this.MessageService.showMessageQuick('Saved');
         });

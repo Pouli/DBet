@@ -17,5 +17,9 @@ Matchs.allow({
 Meteor.methods({
     saveScore(matchId, score) {
         return Matchs.update({ _id : matchId, date: { $lte : new Date() }}, { $set : { score : score }});
+    },
+    checkDate(matchId) {
+        const match = Matchs.findOne({ '_id' : matchId });
+        return match.date > new Date();
     }
 });
