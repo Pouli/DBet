@@ -10,5 +10,12 @@ export default function($rootScope, $state) {
             
             return $state.go(fromState);
         }
+        if(error === 'NEED_LOGOUT') {
+            Accounts.logout((err) => {
+                if(err) console.log(err);
+                
+                return $state.go(toState);
+            });
+        }
     });
 }

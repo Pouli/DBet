@@ -9,6 +9,11 @@ class AuthConfig {
                     'content@': {
                         template: '<login></login>'
                     }
+                },
+                resolve: {
+                    needLogout: (AuthService) => {
+                        return AuthService.needLogout();
+                    }
                 }
             })
             .state('signup', {
@@ -16,6 +21,11 @@ class AuthConfig {
                 views: {
                     'content@': {
                         template: '<signup></signup>'
+                    }
+                },
+                resolve: {
+                    needLogout: (AuthService) => {
+                        return AuthService.needLogout();
                     }
                 }
             });

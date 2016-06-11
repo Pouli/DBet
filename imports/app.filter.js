@@ -1,4 +1,6 @@
 export const displayNameFilter = () => {
+    'ngInject';
+    
     return (user) => {
         if (!user) return '';
         if (user.profile && user.profile.name) return user.profile.name;
@@ -11,6 +13,8 @@ export const displayNameFilter = () => {
 };
 
 export const convertDepartmentId = (DEPARTMENTS) => {
+    'ngInject';
+
     return (input) => {
         return DEPARTMENTS
             .filter(elem => elem.id === input)
@@ -19,6 +23,8 @@ export const convertDepartmentId = (DEPARTMENTS) => {
 };
 
 export const convertGroupId = (GROUPS) => {
+    'ngInject';
+
     return (input) => {
         return GROUPS
             .filter(elem => elem.id === input)

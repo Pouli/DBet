@@ -18,6 +18,13 @@ class AuthService {
         }
         return this.$q.resolve();
     }
+
+    needLogout() {
+        if(Meteor.userId() === null) {
+            return this.$q.resolve();
+        }
+        return this.$q.reject('NEED_LOGOUT');
+    }
 }
 
 export default AuthService;
