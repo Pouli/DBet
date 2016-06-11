@@ -29,6 +29,8 @@ import AppController from '../imports/app.controller';
 import navbarComponent from '../imports/components/navbar/navbar.component';
 import imgUploaderComponent from '../imports/components/img-uploader/img-uploader.component';
 
+import GraphDirective from '../imports/components/graph/graph.directive';
+
 import appRun from '../imports/app.run';
 
 let app = angular.module('DBetApp', [
@@ -52,5 +54,7 @@ app.controller('AppController', AppController);
 
 app.component('navbar', navbarComponent);
 app.component('imgUploader', imgUploaderComponent);
+
+app.directive('graphDirective', () => new GraphDirective());
 
 app.run(appRun);
