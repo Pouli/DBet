@@ -1,4 +1,4 @@
-import './creation.template.html';
+import template from './creation.template.html';
 
 import { Teams } from '../../../api/teams';
 import { Matchs } from '../../../api/matchs';
@@ -6,7 +6,7 @@ import { Matchs } from '../../../api/matchs';
 class CreationController {
     constructor($scope, $reactive, $timeout, $state, GROUPS, MessageService) {
         'ngInject';
-        
+
         $reactive(this).attach($scope);
 
         this.$state = $state;
@@ -61,7 +61,7 @@ function initTimePicker($timeout) {
 }
 
 const CreationComponent = {
-    templateUrl: 'imports/admin/match/creation/creation.template.html',
+    templateUrl: template,
     controller: CreationController,
     controllerAs: 'ctrl'
 };

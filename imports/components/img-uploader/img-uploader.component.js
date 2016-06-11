@@ -62,7 +62,7 @@ class ImgUploaderController {
 }
 
 const ImgUploaderComponent = {
-    templateUrl: 'imports/components/img-uploader/img-uploader.template.html',
+    templateUrl: template,
     controller: ImgUploaderController,
     controllerAs: 'ctrl',
     bindings: {

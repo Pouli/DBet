@@ -1,4 +1,4 @@
-import './creation.template.html';
+import template from './creation.template.html';
 
 import { Teams } from '../../../api/teams';
 
@@ -32,7 +32,7 @@ class CreationController {
 }
 
 const CreationComponent = {
-    templateUrl: 'imports/admin/team/creation/creation.template.html',
+    templateUrl: template,
     controller: CreationController,
     controllerAs: 'ctrl'
 }

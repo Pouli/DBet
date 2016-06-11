@@ -1,4 +1,4 @@
-import './edition.template.html';
+import template from './edition.template.html';
 
 import { Matchs } from '../../../api/matchs';
 
@@ -36,7 +36,7 @@ class EditionController {
 }
 
 const EditionComponent = {
-    templateUrl: 'imports/admin/match/edition/edition.template.html',
+    templateUrl: template,
     controller: EditionController,
     controllerAs: 'ctrl'
 };

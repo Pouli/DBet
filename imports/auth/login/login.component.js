@@ -1,11 +1,11 @@
 import { Meteor } from 'meteor/meteor';
 
-import './login.template.html';
+import template from './login.template.html';
 
 class LoginController {
     constructor($scope, $reactive, $state, MessageService) {
         'ngInject';
-        
+
         this.$state = $state;
         this.MessageService = MessageService;
 
@@ -32,7 +32,7 @@ class LoginController {
 }
 
 const LoginComponent = {
-    templateUrl: 'imports/auth/login/login.template.html',
+    templateUrl: template,
     controller: LoginController,
     controllerAs: 'ctrl'
 };

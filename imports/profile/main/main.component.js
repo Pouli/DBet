@@ -1,3 +1,5 @@
+import template from './main.template.html';
+
 class MainController {
     constructor($timeout) {
         'ngInject';
@@ -11,7 +13,7 @@ function initCollapsible($timeout) {
 }
 
 const MainComponent = {
-    templateUrl: 'imports/profile/main/main.template.html',
+    templateUrl: template,
     controller: MainController,
     controllerAs: 'ctrl'
 };

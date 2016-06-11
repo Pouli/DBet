@@ -1,11 +1,11 @@
-import './edition.template.html';
+import template from './edition.template.html';
 
 import { Teams } from '../../../api/teams';
 
 class EditionController {
     constructor($scope, $reactive, $stateParams, MessageService) {
         'ngInject';
-        
+
         $reactive(this).attach($scope);
         this.MessageService = MessageService;
 
@@ -35,7 +35,7 @@ class EditionController {
 }
 
 const EditionComponent = {
-    templateUrl: 'imports/admin/team/edition/edition.template.html',
+    templateUrl: template,
     controller: EditionController,
     controllerAs: 'ctrl'
 }

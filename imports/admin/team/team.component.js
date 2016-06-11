@@ -1,4 +1,4 @@
-import './team.template.html';
+import template from './team.template.html';
 
 import { Teams } from '../../api/teams';
 import { Images } from '../../api/images';
@@ -35,7 +35,7 @@ class TeamController {
 }
 
 const TeamComponent = {
-    templateUrl: 'imports/admin/team/team.template.html',
+    templateUrl: template,
     controller: TeamController,
     controllerAs: 'ctrl'
 }

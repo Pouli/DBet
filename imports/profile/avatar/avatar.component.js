@@ -1,3 +1,5 @@
+import template from './avatar.template.html';
+
 class AvatarController {
     constructor($scope, $reactive, $timeout) {
         'ngInject';
@@ -28,7 +30,7 @@ class AvatarController {
 }
 
 const AvatarComponent = {
-    templateUrl: 'imports/profile/avatar/avatar.template.html',
+    templateUrl: template,
     controller: AvatarController,
     controllerAs: 'ctrl'
 };

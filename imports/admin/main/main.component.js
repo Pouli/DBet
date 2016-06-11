@@ -1,4 +1,4 @@
-import './main.template.html';
+import template from './main.template.html';
 
 class mainController {
     constructor($timeout) {
@@ -13,7 +13,7 @@ function initTab($timeout) {
 }
 
 const mainComponent = {
-    templateUrl: 'imports/admin/main/main.template.html',
+    templateUrl: template,
     controller: mainController,
     controllerAs: 'ctrl'
 }

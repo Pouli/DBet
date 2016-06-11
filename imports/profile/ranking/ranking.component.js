@@ -1,3 +1,5 @@
+import template from './ranking.template.html';
+
 class RankingController {
     constructor($scope, $reactive) {
         'ngInject';
@@ -15,7 +17,7 @@ class RankingController {
 }
 
 const RankingComponent = {
-    templateUrl: 'imports/profile/ranking/ranking.template.html',
+    templateUrl: template,
     controller: RankingController,
     controllerAs: 'ctrl'
 };

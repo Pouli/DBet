@@ -1,4 +1,4 @@
-import './match.template.html';
+import template from './match.template.html';
 
 import { Matchs } from '../../api/matchs';
 import { Teams } from '../../api/teams';
@@ -34,7 +34,7 @@ class MatchController {
 }
 
 const matchComponent = {
-    templateUrl: 'imports/admin/match/match.template.html',
+    templateUrl: template,
     controller: MatchController,
     controllerAs: 'ctrl'
 };

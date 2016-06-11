@@ -1,7 +1,7 @@
+import template from './navbar.template.html';
+
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
-
-import './navbar.template.html';
 
 class NavbarController {
     constructor($scope, $reactive, $state, $timeout) {
@@ -44,7 +44,7 @@ class NavbarController {
 }
 
 const NavbarComponent = {
-    templateUrl: 'imports/components/navbar/navbar.template.html',
+    templateUrl: template,
     controller: NavbarController,
     controllerAs: 'ctrl'
 };

@@ -1,4 +1,4 @@
-import './main.template.html';
+import template from './main.template.html';
 
 import { Matchs } from '../../api/matchs';
 import { Bets } from '../../api/bets';
@@ -53,7 +53,7 @@ class MainController {
 }
 
 const mainComponent = {
-    templateUrl: 'imports/result/main/main.template.html',
+    templateUrl: template,
     controller: MainController,
     controllerAs: 'ctrl'
 };

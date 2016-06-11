@@ -1,6 +1,6 @@
 import { Accounts } from 'meteor/accounts-base';
 
-import './signup.template.html';
+import template from './signup.template.html';
 
 class SignupController {
     constructor($scope, $timeout, $reactive, $state, MessageService, DEPARTMENTS) {
@@ -43,7 +43,7 @@ function initSelect($timeout) {
 }
 
 const SignupComponent = {
-    templateUrl: 'imports/auth/signup/signup.template.html',
+    templateUrl: template,
     controller: SignupController,
     controllerAs: 'ctrl'
 };
