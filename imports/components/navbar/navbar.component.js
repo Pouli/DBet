@@ -1,8 +1,5 @@
 import template from './navbar.template.html';
 
-import { Meteor } from 'meteor/meteor';
-import { Accounts } from 'meteor/accounts-base';
-
 class NavbarController {
     constructor($scope, $reactive, $state, $timeout) {
         'ngInject';

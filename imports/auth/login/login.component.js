@@ -1,5 +1,3 @@
-import { Meteor } from 'meteor/meteor';
-
 import template from './login.template.html';
 
 class LoginController {

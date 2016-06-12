@@ -1,5 +1,3 @@
-import { Meteor } from 'meteor/meteor';
-
 import '../imports/api/matchs';
 import '../imports/api/teams';
 import '../imports/api/users';
