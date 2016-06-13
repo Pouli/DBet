@@ -19,6 +19,7 @@ class AvatarController {
     }
 
     updateProfilePicture() {
+        console.log(this.currentUser.profile.picture);
         Meteor.call('updateProfilePicture', this.currentUser.profile.picture);
     }
 

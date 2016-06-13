@@ -1,29 +1,29 @@
 import templateUrl from './graph.template.html';
 
+class GraphController {
+    constructor () {
+        this.name = 'Pouli';
+    }
+}
+
 class GraphDirective {
     constructor() {
         this.templateUrl = templateUrl;
         this.restrict = 'E';
-        this.scope = {};
+        this.scope = {
+            scores: '='
+        };
 
         this.controller = GraphController;
         this.controllerAs = 'ctrl';
         this.bindToController = true;
     }
 
-    compile() {
-
-    }
-
-    link() {
-
-    }
-}
-
-// Directive's controller
-class GraphController {
-    constructor () {
-        this.name = 'Pouli';
+    link(scope, element, attrs, controller) {
+        console.log(scope);
+        console.log(element);
+        console.log(attrs);
+        console.log(controller);
     }
 }
 

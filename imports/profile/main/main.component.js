@@ -1,8 +1,16 @@
 import template from './main.template.html';
 
 class MainController {
-    constructor($timeout) {
+    constructor($scope, $reactive, $timeout) {
         'ngInject';
+
+        $reactive(this).attach($scope);
+
+        this.helpers({
+           currentUser() {
+               return Meteor.user();
+           } 
+        });
         
         initCollapsible($timeout);
     }

@@ -1,7 +1,6 @@
 Meteor.methods({
     updateProfilePicture(pictureInfo) {
-       console.log(pictureInfo);
-       return Meteor.users.update({ _id : Meteor.userId }, { $set: { 'profile.picture' : pictureInfo }});
+        return Meteor.users.update({ _id : Meteor.userId() }, { $set: { 'profile.picture' : pictureInfo }});
     },
     updateUsersScore(matchId, score) {
         Meteor.call('getBets', matchId, (err, res) => {
