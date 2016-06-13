@@ -47,7 +47,8 @@ class ImgUploaderController {
                 this.imageInfo.url = file.url;
                 this.change();
             } else {
-                this.imageInfo = {id: file._id, url: file.url};
+                this.imageInfo.id = file._id;
+                this.imageInfo.url = file.url;
             }
             this.reset();
         }), (e) => {
