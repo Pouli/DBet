@@ -2,6 +2,7 @@ export const DEPARTMENTS = [
     { id: 'AUDIT', label: 'Audit' },
     { id: 'CONSEIL', label: 'Conseil' },
     { id: 'ERS', label: 'ERS' },
+    { id: 'FA', label: 'Financial Advisory' },
     { id: 'TAJ', label: 'TAJ' }
 ];
 
