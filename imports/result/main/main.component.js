@@ -47,8 +47,8 @@ class MainController {
 
     getDistinctGroups() {
         let map = this.matchs.map((item) => item.group);
-        
-        return _.chain(map).uniq('group').value();
+
+        return _.uniq(map);
     }
 }
 
