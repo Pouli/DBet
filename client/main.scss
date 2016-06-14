@@ -248,3 +248,21 @@ img-uploader {
 .no-margin {
     margin: 0 !important;
 }
+
+// FOOTER
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer.page-footer {
+    margin-top: 0;
+    padding-top: 0;
+    background-color: $principal-main-color;
+    color: $principal-light-color;
+}

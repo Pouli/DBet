@@ -9,9 +9,18 @@
 </head>
 
 <body>
-    <div class="main" ng-app="DBetApp" ng-controller="AppController as ctrl">
+    <main ng-app="DBetApp" ng-controller="AppController as ctrl">
         <navbar></navbar>
 
         <div ui-view="content" class="container"></div>
-    </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                By Paul with Zhen's help
+                <a class="grey-text text-lighten-4 right" href="#!">TRS - Deloitte App Factory</a>
+            </div>
+        </div>
+    </footer>
 </body>
