@@ -1,5 +1,5 @@
 class AdminConfig {
-    static initRoute ($stateProvider, $urlRouterProvider) {
+    static initRoute ($stateProvider) {
         'ngInject';
         $stateProvider
             .state('admin', {
