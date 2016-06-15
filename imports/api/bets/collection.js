@@ -25,5 +25,8 @@ Meteor.methods({
     },
     getBets(matchId) {
         return Bets.find({ matchId : matchId });
+    },
+    cancelBet(matchId) {
+        return Bets.remove({ userId: Meteor.userId(), matchId: matchId });
     }
 });

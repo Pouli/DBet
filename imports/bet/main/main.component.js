@@ -35,7 +35,7 @@ class MainController {
         Meteor.call('saveBet', matchId, value, (err) => {
             if(err) return this.MessageService.showMessageQuick(err.message);
 
-            return this.MessageService.showMessageQuick('Saved');
+            return this.MessageService.showMessageQuick('Sauvegarder');
         });
     }
 
@@ -51,6 +51,15 @@ class MainController {
         let filter = this.matchs.map((item) => item.group);
 
         return _.chain(filter).uniq().value();
+    }
+
+    cancelBet(matchId) {
+        Meteor.call('cancelBet', matchId, (err, res) => {
+            if(err) return this.MessageService.showMessageQuick(err.message);
+            if(!res) return this.MessageService.showMessageQuick('Aucun pari à réinitialiser');
+
+            return this.MessageService.showMessageQuick('Réinitialisé');
+        });
     }
 }
 
