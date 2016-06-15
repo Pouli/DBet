@@ -3,6 +3,7 @@ export const DEPARTMENTS = [
     { id: 'CONSEIL', label: 'Conseil' },
     { id: 'ERS', label: 'ERS' },
     { id: 'FA', label: 'Financial Advisory' },
+    { id: 'MARKETING', label: 'Marketing' },
     { id: 'TAJ', label: 'TAJ' }
 ];
 
