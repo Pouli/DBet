@@ -6,7 +6,7 @@ Meteor.methods({
         Meteor.call('getBets', matchId, (err, res) => {
             res.forEach((bet) => {
                 const currentUser = Meteor.users.find({ _id : bet.userId }).fetch();
-                const currentScore = currentUser[0].profile.score.pop();
+                const currentScore = currentUser[0].profile.score[0];
 
                 const newScore = defineWinnerOrDraw(score) === bet.value ? currentScore.value + 3 : currentScore.value - 1;
 
