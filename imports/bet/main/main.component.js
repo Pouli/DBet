@@ -43,10 +43,6 @@ class MainController {
         $timeout(() => $('.collapsible').collapsible());
     }
 
-    groupDayMatchs() {
-        r
-    }
-
     saveBet(matchId, value) {
         Meteor.call('saveBet', matchId, value, (err) => {
             if(err) return this.MessageService.showMessageQuick(err.message);
