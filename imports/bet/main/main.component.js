@@ -23,12 +23,28 @@ class MainController {
             matchs() {
                 return Matchs.find({'date' : { $gte : new Date()}});
             },
+            dayMatchs() {
+                let start = new Date();
+                start.setHours(0,0,0,0);
+
+                let end = new Date();
+                end.setHours(23,59,59,999);
+
+                let matchs = Matchs.find({'date' : { $gte : start, $lt : end }}, { sort: { 'group' : 1 }}).fetch();
+
+                return _.groupBy(matchs, 'group');
+
+            },
             bets() {
                 return Bets.find();
             }
         });
 
         $timeout(() => $('.collapsible').collapsible());
+    }
+
+    groupDayMatchs() {
+        r
     }
 
     saveBet(matchId, value) {

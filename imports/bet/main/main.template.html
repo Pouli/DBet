@@ -1,3 +1,39 @@
+<div class="row">
+    <div class="col s12 m6 offset-m3">
+        <div class="card-panel">
+            <span class="principal-main-color center-align flow-text truncate">Match du jour</span>
+            <div ng-repeat="(group, matchs) in ctrl.dayMatchs">
+                <span class="secondary-main-color center-align flow-text truncate">{{ group | convertGroupId }}</span>
+                <div ng-repeat="match in matchs | orderBy: 'date'" class="row no-bottom-margin valign-wrapper principal-main-color">
+                    <div class="col s5 row-dispatcher">
+                        <div class="logo valign-wrapper">
+                            <img ng-src="{{ match.homeTeam.logo.url }}" class="circle responsive-img" alt="" />
+                        </div>
+
+                        <div class="country">
+                            <p class="center-align truncate">{{match.homeTeam.country}}</p>
+                        </div>
+                    </div>
+
+                    <div class="col s2 center-align">
+                        <p class="flow-text truncate">-</p>
+                    </div>
+
+                    <div class="col s5 row-dispatcher">
+                        <div class="country">
+                            <p class="center-align truncate">{{match.awayTeam.country}}</p>
+                        </div>
+
+                        <div class="logo valign-wrapper">
+                            <img ng-src="{{ match.awayTeam.logo.url }}" class="circle responsive-img" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <ul class="collapsible popout" data-collapsible="accordion">
     <li ng-repeat="group in ctrl.getDistinctGroups() | orderBy">
         <div class="collapsible-header">{{ group | convertGroupId }}</div>
