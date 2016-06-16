@@ -2,7 +2,7 @@
     <li ng-repeat="group in ctrl.getDistinctGroups()">
         <div class="collapsible-header">{{ group | convertGroupId }}</div>
         <div class="collapsible-body add-padding">
-            <div class="section" ng-repeat="match in ctrl.matchs | filter: { group : group } | orderBy: 'date'">
+            <div ng-if="ctrl.matchs" class="section" ng-repeat="match in ctrl.matchs | filter: { group : group } | orderBy: 'date'">
                 <ul class="collapsible">
                     <li>
                         <div class="collapsible-header">
