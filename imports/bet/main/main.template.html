@@ -1,5 +1,5 @@
 <ul class="collapsible popout" data-collapsible="accordion">
-    <li ng-repeat="group in ctrl.getDistinctGroups()">
+    <li ng-repeat="group in ctrl.getDistinctGroups() | orderBy">
         <div class="collapsible-header">{{ group | convertGroupId }}</div>
         <div class="collapsible-body add-padding">
             <div class="section" ng-repeat="match in ctrl.matchs | filter: { group : group } | orderBy: 'date'">
